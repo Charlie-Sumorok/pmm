@@ -1,2 +1,2 @@
 # PMM
-A package manager for package managers
+> A package manager for package managers

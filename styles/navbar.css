@@ -1,0 +1,30 @@
+@import "./index.css";
+
+.navbar {
+	display: grid;
+	background-color: var(--background-color, #282C34);
+	gap: 1rem;
+	margin: 1rem;
+	grid-template-columns: repeat( auto-fit, minmax( var(--min-width, 15rem), 1fr ) );
+
+	list-style: none;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.nav-item {
+	background: var(--button-background, #21252B);
+	border-radius: 5px;
+}
+
+.nav-item:hover {
+	background: var(--button-hover, #3E4351);
+}
+
+.nav-item:active {
+	background: var(--button-pressed, #2C313A);
+}
+
+.nav-item:focus {
+	outline: 0;
+}

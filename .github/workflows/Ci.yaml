@@ -1,0 +1,39 @@
+name: Electron-CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  compile_typescript:
+    name: Compile TypeScript
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Terminal
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+      - name: Setup node_modules/
+        run: npm add
+      - name: Compile TypeScript
+        run: tsc
+        working-directory: scripts
+
+  test_app:
+    name: Test App
+    needs: compile_typescript
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Terminal
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+      - name: Setup node_modules/
+        run: npm add
+      - name: Test App
+        run: npm run server_test
