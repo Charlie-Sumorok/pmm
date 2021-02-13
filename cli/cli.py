@@ -44,7 +44,7 @@ def main(*arguments):
 	if len(sys.argv) > 1:
 		subcommand = sys.argv[1]
 		if subcommand in list(options.keys()):
-			command_file = open(f'./commands/{subcommand}.py', "r");
+			import os;print(os.path);command_file = open(f'./commands/{subcommand}.py', "r");
 			exec(f'{command_file.read()}')
 			command_file.close()
 		else:
