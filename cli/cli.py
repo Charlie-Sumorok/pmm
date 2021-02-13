@@ -39,7 +39,12 @@ options = {
 	"repo": "{package_manager_name}",  # show package manager repo
 	"config": "",  # show or edit settings
 	"commands": "",  # list commands
+	"completion": ["get | set", "{shell_name}" "path (if args[1] == set)"], # ( prints| writes) completion script
+	"cmds": "-> commands",
 }
+
+error = NotImplementedError("That command has not been implemented yet")
+
 def main(*arguments):
 	if len(sys.argv) > 1:
 		subcommand = sys.argv[1]
@@ -48,7 +53,7 @@ def main(*arguments):
 			exec(f'{command_file.read()}')
 			command_file.close()
 		else:
-			raise NotImplementedError
+			raise error
 	elif len(arguments) >= 1:
 		args = [sys.argv[0], *arguments]
 		subcommand = args[1]
@@ -57,7 +62,7 @@ def main(*arguments):
 			exec(f'{command_file.read()}')
 			command_file.close()
 		else:
-			raise NotImplementedError
+			raise error
 	else:
 		import cli
 		cli.main('help')

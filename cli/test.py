@@ -36,6 +36,7 @@ subcommands = {
 	"config": "",  # show or edit settings
 	"commands": "",  # list commands
 	"completion": ["get | set", "{shell_name}" "path (if args[1] == set)"], # ( prints| writes) completion script
+	"cmds": "-> commands",
 }
 
 for subcommand in subcommands.keys():

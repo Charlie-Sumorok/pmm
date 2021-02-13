@@ -35,7 +35,8 @@ subcommands = {
 	"repo": "{package_manager_name}",  # show package manager repo
 	"config": "",  # show or edit settings
 	"commands": "",  # list commands
-	"completion": ["get | set", "{shell_name}" "path (if args[1] == set)"], # ( prints| writes) completion script 
+	"completion": ["get | set", "{shell_name}" "path (if args[1] == set)"], # ( prints| writes) completion script
+	"cmds": "-> commands",
 }
 
 result = [
