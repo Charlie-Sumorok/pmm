@@ -1,3 +1,8 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Hide generated *.js files
+*.js linguist-vendored=false
+*.js linguist-generated=false
+*.js linguist-documentation=false
 *.js linguist-detectable=false
