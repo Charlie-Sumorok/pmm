@@ -7,10 +7,12 @@ exports.storage = void 0;
 const electron_store_1 = __importDefault(require("electron-store"));
 const storage = new electron_store_1.default({
     defaults: {
-        apm: false,
-        npm: false,
-        brew: false,
-        pip: false
-    }
+        package_managers: {
+            apm: false,
+            npm: false,
+            brew: false,
+            pip: false,
+        },
+    },
 });
 exports.storage = storage;

@@ -12,7 +12,7 @@ const helper_functions_1 = require("./helper_functions");
 const github_1 = require("./helper_functions/github");
 const main_repo = {
     owner: "Charlie-Sumorok",
-    repo_name: "Visual-Web",
+    repo_name: "ppm",
 };
 const feature_request = new github_1.GitHubIssue({
     labels: 'enhancement',
@@ -24,10 +24,6 @@ const bug_report = new github_1.GitHubIssue({
     template: 'bug-report.md',
     title: 'Bug+Report'
 });
-const electron_repo = {
-    owner: "Charlie-Sumorok",
-    repo_name: "Visual-Web-Electron",
-};
 const bug_report_body = `
 ---
 name: Bug Report
@@ -69,20 +65,15 @@ const helpSubmenu = [
     }),
     github_1.GitHubRepo_MenuBar_Item({
         label: 'Source Code',
-        repo: electron_repo,
+        repo: main_repo,
     }),
     {
         type: 'separator'
     },
     new github_1.GitHubIssueFromTemplate({
         label: 'Report an Issue …',
-        repo: electron_repo,
+        repo: main_repo,
         issue: bug_report
-    }),
-    new github_1.GitHubIssueFromTemplate({
-        label: 'Feature Request For Electron Version of this app',
-        repo: electron_repo,
-        issue: feature_request
     }),
     new github_1.GitHubIssueFromTemplate({
         label: 'Feature Request',
