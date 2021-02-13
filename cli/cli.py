@@ -59,6 +59,7 @@ def main(*arguments):
 		subcommand = args[1]
 		if f'{subcommand}' in [option for option in options.keys()]:
 			command_file = open(f'./commands/{subcommand}.py', "r");
+			contents = command_file.read()
 			exec(f'{command_file.read()}')
 			command_file.close()
 		else:
