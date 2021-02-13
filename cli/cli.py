@@ -40,7 +40,7 @@ options = {
 	"config": "",  # show or edit settings
 	"commands": "",  # list commands
 }
-def main(arguments=[]):
+def main(*arguments=[]):
 	if len(sys.argv) > 1:
 		subcommand = sys.argv[1]
 		if subcommand in list(options.keys()):
@@ -60,6 +60,6 @@ def main(arguments=[]):
 			raise NotImplementedError
 	else:
 		import cli
-		cli.main(['help'])
+		cli.main('help')
 if __name__ == '__main__':
 	main()

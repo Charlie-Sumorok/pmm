@@ -35,14 +35,9 @@ subcommands = {
 	"repo": "{package_manager_name}",  # show package manager repo
 	"config": "",  # show or edit settings
 	"commands": "",  # list commands
-	"completion": ["get | set", "{shell_name}" "path (if args[1] == set)"], # ( prints| writes) completion script 
+	"completion": ["get | set", "{shell_name}" "path (if args[1] == set)"], # ( prints| writes) completion script
 }
 
-result = [
-	f'{subcommand}\n' for subcommand in subcommands.keys()
-][:-1] + [
-	[
-		subcommand for subcommand in subcommands.keys()
-	][-1]
-]
-print(*result, sep = '')
+for subcommand in subcommands.keys():
+	import cli
+	cli.main(subcommand)

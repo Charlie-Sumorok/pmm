@@ -17,4 +17,4 @@ jobs:
       - name: Setup Terminal
         uses: actions/checkout@v2
       - name: Test CLI
-        run: cli/cli.py
+        run: cli/test.py
