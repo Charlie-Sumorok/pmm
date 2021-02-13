@@ -40,7 +40,7 @@ options = {
 	"config": "",  # show or edit settings
 	"commands": "",  # list commands
 }
-def main(*arguments=[]):
+def main(*arguments):
 	if len(sys.argv) > 1:
 		subcommand = sys.argv[1]
 		if subcommand in list(options.keys()):
@@ -49,7 +49,7 @@ def main(*arguments=[]):
 			command_file.close()
 		else:
 			raise NotImplementedError
-	elif arguments != []:
+	elif len(arguments) >= 1:
 		args = [sys.argv[0], *arguments]
 		subcommand = args[1]
 		if f'{subcommand}' in [option for option in options.keys()]:
