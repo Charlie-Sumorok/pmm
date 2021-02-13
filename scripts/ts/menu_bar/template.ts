@@ -18,7 +18,7 @@ import {
 
 const main_repo: GitHubRepo = {
 	owner:     "Charlie-Sumorok",
-	repo_name: "Visual-Web",
+	repo_name: "ppm",
 }
 
 const feature_request = new GitHubIssue({
@@ -32,11 +32,6 @@ const bug_report = new GitHubIssue({
 	template: 'bug-report.md',
 	title:    'Bug+Report'
 })
-
-const electron_repo: GitHubRepo = {
-	owner:     "Charlie-Sumorok",
-	repo_name: "Visual-Web-Electron",
-}
 
 const bug_report_body = `
 ---
@@ -80,20 +75,15 @@ const helpSubmenu = [
 	}),
 	GitHubRepo_MenuBar_Item({
 		label: 'Source Code',
-		repo:  electron_repo,
+		repo:  main_repo,
 	}),
 	{
 		type: 'separator'
 	},
 	new GitHubIssueFromTemplate({
 		label: 'Report an Issue …',
-		repo:  electron_repo,
+		repo:  main_repo,
 		issue: bug_report
-	}),
-	new GitHubIssueFromTemplate({
-		label: 'Feature Request For Electron Version of this app',
-		repo:  electron_repo,
-		issue: feature_request
 	}),
 	new GitHubIssueFromTemplate({
 		label: 'Feature Request',
