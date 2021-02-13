@@ -7,8 +7,8 @@ const storage = new Store({
 			npm: false,
 			brew: false,
 			pip: false,
-		}
-	}
+		},
+	},
 });
 
 export { storage };
