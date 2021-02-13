@@ -6,7 +6,6 @@ import { menu } from './menu_bar';
 import unhandled from 'electron-unhandled';
 import contextMenu from 'electron-context-menu';
 
-
 unhandled();
 // debug();
 contextMenu();
