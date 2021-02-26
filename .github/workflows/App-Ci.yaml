@@ -2,11 +2,7 @@ name: App CI
 
 on:
   push:
-    branches:
-      - master
   pull_request:
-    branches:
-      - master
   workflow_dispatch:
 
 jobs:
@@ -14,13 +10,17 @@ jobs:
     name: Compile TypeScript
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Terminal
+      -
+        name: Setup Terminal
         uses: actions/checkout@v2
-      - name: Setup Node.js
+      -
+        name: Setup Node.js
         uses: actions/setup-node@v2
-      - name: Setup node_modules/
+      -
+        name: Setup node_modules/
         run: npm add
-      - name: Compile TypeScript
+      -
+        name: Compile TypeScript
         run: tsc
         working-directory: scripts
 
@@ -29,11 +29,15 @@ jobs:
     needs: compile_typescript
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Terminal
+      -
+        name: Setup Terminal
         uses: actions/checkout@v2
-      - name: Setup Node.js
+      -
+        name: Setup Node.js
         uses: actions/setup-node@v2
-      - name: Setup node_modules/
+      -
+        name: Setup node_modules/
         run: npm add
-      - name: Test App
+      -
+        name: Test App
         run: npm run server_test

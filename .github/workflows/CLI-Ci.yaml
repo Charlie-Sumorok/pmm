@@ -2,11 +2,7 @@ name: CLI CI
 
 on:
   push:
-    branches:
-      - master
   pull_request:
-    branches:
-      - master
   workflow_dispatch:
 
 jobs:
@@ -14,8 +10,10 @@ jobs:
     name: Test CLI
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Terminal
+      -
+        name: Setup Terminal
         uses: actions/checkout@v2
-      - name: Test CLI
+      -
+        name: Test CLI
         run: python3 test.py
         working-directory: cli
