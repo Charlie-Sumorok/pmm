@@ -41,4 +41,5 @@ subcommands = {
 
 for subcommand in subcommands.keys():
 	import cli
+	print(subcommand)
 	cli.main(subcommand)
