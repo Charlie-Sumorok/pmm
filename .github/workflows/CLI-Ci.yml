@@ -9,6 +9,7 @@ jobs:
   test_Cli:
     name: Test CLI
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       -
         name: Setup Terminal

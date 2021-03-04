@@ -9,6 +9,7 @@ jobs:
   compile_typescript:
     name: Compile TypeScript
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       -
         name: Setup Terminal
@@ -29,6 +30,7 @@ jobs:
     name: Test App
     needs: compile_typescript
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       -
         name: Setup Terminal
