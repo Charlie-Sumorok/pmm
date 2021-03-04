@@ -6,31 +6,45 @@ on:
   workflow_dispatch:
 
 jobs:
-  compile_typescript:
-    name: Compile TypeScript
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
-    steps:
-      -
-        name: Setup Terminal
-        uses: actions/checkout@v2
-      -
-        name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          check-latest: true
-      -
-        name: Setup node_modules/
-        run: npm add
-      -
-        name: Compile TypeScript
-        run: tsc
+  lint:
+      name: Lint
+      runs-on: ${{ matrix.os }}
+      timeout-minutes: 60
+      strategy:
+        fail-fast: false
+        matrix:
+          os:
+            - ubuntu-latest
+            - macos-latest
+            - windows-latest
 
-  test_app:
-    name: Test App
-    needs: compile_typescript
-    runs-on: ubuntu-latest
+      steps:
+        -
+          name: Setup Terminal
+          uses: actions/checkout@v2
+        -
+          name: Setup Node.js
+          uses: actions/setup-node@v2
+        -
+          name: Setup node_modules/
+          run: npm add
+        -
+          name: Lint
+          run: npm test
+
+  test:
+    name: Test
+    needs: lint
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+
     steps:
       -
         name: Setup Terminal
@@ -42,5 +56,16 @@ jobs:
         name: Setup node_modules/
         run: npm add
       -
-        name: Test App
-        run: npm run server_test
+        name: Setup TypeScript
+        if: ${{ matrix.os == 'macos-latest' }}
+        run: brew install typescript; echo "TypeScript is Setup"
+      -
+        name: Setup TypeScript
+        if: ${{ !(matrix.os == 'macos-latest') }}
+        run: echo "TypeScript is Setup"
+      -
+        name: Complie TypeScript
+        run: tsc
+      -
+        name: Test
+        run: npm start
