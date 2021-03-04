@@ -16,13 +16,14 @@ jobs:
       -
         name: Setup Node.js
         uses: actions/setup-node@v2
+        with:
+          check-latest: true
       -
         name: Setup node_modules/
         run: npm add
       -
         name: Compile TypeScript
         run: tsc
-        working-directory: scripts
 
   test_app:
     name: Test App
