@@ -12,44 +12,36 @@ class GitHubRepo {
 		} = metadata;
 		this.owner = owner;
 		this.repo_name = repo_name;
-		if(url) {
+		if (url) {
 			this.url = url;
 		} else {
 			this.url = `https://github.com/${owner}/${repo_name}`;
 		}
+	}
+}
+
+const gitHubRepo_MenuBar_Item = ({label, repo}: { label: string; repo: GitHubRepo }) => {
+	const {
+		owner,
+		repo_name,
+		url
+	} = repo;
+	let result;
+	if(url) {
+		result = openUrlMenuItem({
+			label: label,
+			url: url
+		})
+	} else {
+		result = openUrlMenuItem({
+			label: label,
+			url: `https://github.com/${owner}/${repo_name}`,
+		})
 	};
+
+	return result;
 }
 
-const gitHubRepo_MenuBar_Item = (
-		metadata: {
-			label: string;
-			repo: GitHubRepo;
-		}
-	) => {
-		const {
-			label,
-			repo
-		} = metadata
-		const {
-			owner,
-			repo_name,
-			url
-		} = repo;
-		var result;
-		if(url) {
-			result = openUrlMenuItem({
-				label: label,
-				url: url
-			})
-		} else {
-			result = openUrlMenuItem({
-				label: label,
-				url: `https://github.com/${owner}/${repo_name}`,
-			})
-		};
-
-		return result;
-}
 class GitHubIssue {
 	assignees?: string = '';
 	labels?: string = '';
@@ -62,17 +54,25 @@ class GitHubIssue {
 			labels,
 			template,
 			title,
-		} = metadata
-		this.assignees = assignees
-		this.labels = labels
-		this.template = template
-		this.title = title
+		} = metadata;
+		this.assignees = assignees;
+		this.labels = labels;
+		this.template = template;
+		this.title = title;
 	};
 }
 
 const get_issue_url = (repo: GitHubRepo, issue: GitHubIssue) => {
-	const { owner, repo_name } = repo
-	const { assignees, labels, template, title } = issue
+	const {
+		owner,
+		repo_name,
+	} = repo;
+	const {
+		assignees,
+		labels,
+		template,
+		title,
+	} = issue;
 	const metadata_labels = [
 		`assignees=${assignees}`,
 		`labels=${labels}`,
@@ -84,38 +84,36 @@ const get_issue_url = (repo: GitHubRepo, issue: GitHubIssue) => {
 		labels_input,
 		template_input,
 		title_input,
-	] = metadata_labels
-	const metadata = `${assignees_input}&${labels_input}&${template_input}&${title_input}`
+	] = metadata_labels;
+	const metadata = `${assignees_input}&${labels_input}&${template_input}&${title_input}`;
 
-	const issue_url = `https://github.com/${owner}/${repo_name}/issues/new?${metadata}`
-	return issue_url
+	const issue_url = `https://github.com/${owner}/${repo_name}/issues/new?${metadata}`;
+	return issue_url;
 }
 
 interface IssueTemplate_MenuBar {
-	label: string,
+	label: string;
 
-	repo: GitHubRepo,
-	issue: GitHubIssue,
+	repo: GitHubRepo;
+	issue: GitHubIssue;
 }
 
-class GitHubIssueFromTemplate {
-	constructor(template: IssueTemplate_MenuBar) {
-		const {
-			label,
-			repo,
-			issue,
-		} = template
-		return openUrlMenuItem({
-			label: label,
-			url: get_issue_url(repo, issue)
-		})
-	}
-}
+const gitHubIssueFromTemplate = (template: IssueTemplate_MenuBar) => {
+	const {
+		label,
+		repo,
+		issue,
+	} = template;
+	return openUrlMenuItem({
+		label,
+		url: get_issue_url(repo, issue)
+	});
+};
 
 export {
 	gitHubRepo_MenuBar_Item,
 	get_issue_url,
 	GitHubRepo,
 	GitHubIssue,
-	GitHubIssueFromTemplate,
+	gitHubIssueFromTemplate,
 };

@@ -14,7 +14,7 @@ import { showPreferences } from './helper_functions';
 import {
 	GitHubRepo,
 	GitHubIssue,
-	GitHubIssueFromTemplate,
+	gitHubIssueFromTemplate,
 	gitHubRepo_MenuBar_Item,
 } from './helper_functions/github';
 
@@ -82,12 +82,12 @@ const helpSubmenu = [
 	{
 		type: 'separator'
 	},
-	new GitHubIssueFromTemplate({
+	gitHubIssueFromTemplate({
 		label: 'Report an Issue …',
 		repo: main_repo,
 		issue: bug_report
 	}),
-	new GitHubIssueFromTemplate({
+	gitHubIssueFromTemplate({
 		label: 'Feature Request',
 		repo: main_repo,
 		issue: feature_request
