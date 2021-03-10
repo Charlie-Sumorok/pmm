@@ -56,17 +56,5 @@ jobs:
         name: Setup node_modules/
         run: npm add
       -
-        name: Setup TypeScript
-        if: ${{ matrix.os == 'macos-latest' }}
-        run: brew install typescript; echo "TypeScript is Setup"
-      -
-        name: Setup TypeScript
-        if: ${{ !(matrix.os == 'macos-latest') }}
-        run: echo "TypeScript is Setup"
-      -
-        name: Complie TypeScript
-        run: tsc
-      -
         name: Test
-        run: npm start
-
+        run: py cli/test.py
