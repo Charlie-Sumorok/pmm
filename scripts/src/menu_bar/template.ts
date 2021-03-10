@@ -17,6 +17,7 @@ import {
 	gitHubIssueFromTemplate,
 	gitHubRepo_MenuBar_Item,
 } from './helper_functions/github';
+import { SubMenu } from './helper_functions/menus';
 
 const main_repo: GitHubRepo = {
 	owner: 'Charlie-Sumorok',
@@ -70,7 +71,7 @@ assignees: ''
 
 ${debugInfo()}`;
 
-const helpSubmenu = [
+const helpSubmenu: SubMenu = [
 	gitHubRepo_MenuBar_Item({
 		label: 'Website',
 		repo: main_repo
@@ -110,7 +111,7 @@ if (!is.macos) {
 	);
 }
 
-const debugSubmenu = [
+const debugSubmenu: SubMenu = [
 	{
 		label: 'Show Settings',
 		click() {
@@ -184,7 +185,7 @@ const macosTemplate = [
 ];
 
 // Linux and Windows
-const otherTemplate = [
+const otherTemplate: SubMenu = [
 	{
 		role: 'fileMenu',
 		submenu: [
@@ -230,4 +231,6 @@ if (is.development) {
 	});
 }
 
-export { template };
+export {
+	template,
+};
