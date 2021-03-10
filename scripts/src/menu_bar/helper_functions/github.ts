@@ -20,7 +20,7 @@ class GitHubRepo {
 	};
 }
 
-const GitHubRepo_MenuBar_Item = (
+const gitHubRepo_MenuBar_Item = (
 		metadata: {
 			label: string;
 			repo: GitHubRepo;
@@ -113,7 +113,7 @@ class GitHubIssueFromTemplate {
 }
 
 export {
-	GitHubRepo_MenuBar_Item,
+	gitHubRepo_MenuBar_Item,
 	get_issue_url,
 	GitHubRepo,
 	GitHubIssue,

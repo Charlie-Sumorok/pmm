@@ -15,26 +15,25 @@ import {
 	GitHubRepo,
 	GitHubIssue,
 	GitHubIssueFromTemplate,
-	GitHubRepo_MenuBar_Item,
+	gitHubRepo_MenuBar_Item,
 } from './helper_functions/github';
-
 
 const main_repo: GitHubRepo = {
 	owner: 'Charlie-Sumorok',
-	repo_name: "ppm",
-}
+	repo_name: 'ppm',
+};
 
 const feature_request = new GitHubIssue({
 	labels: 'enhancement',
 	template: 'feature-request.md',
 	title: 'Add+Feature',
-})
+});
 
 const bug_report = new GitHubIssue({
 	labels: 'bug',
 	template: 'bug-report.md',
 	title: 'Bug+Report'
-})
+});
 
 const bug_report_body = `
 ---
@@ -72,11 +71,11 @@ assignees: ''
 ${debugInfo()}`;
 
 const helpSubmenu = [
-	GitHubRepo_MenuBar_Item({
+	gitHubRepo_MenuBar_Item({
 		label: 'Website',
 		repo: main_repo
 	}),
-	GitHubRepo_MenuBar_Item({
+	gitHubRepo_MenuBar_Item({
 		label: 'Source Code',
 		repo: main_repo,
 	}),
@@ -121,7 +120,7 @@ const debugSubmenu = [
 	{
 		label: 'Show App Data',
 		click() {
-			shell.openPath(app.getPath('userData'));
+			void shell.openPath(app.getPath('userData'));
 		}
 	},
 	{
@@ -151,7 +150,7 @@ const macosTemplate = [
 			label: 'Preferences…',
 			accelerator: 'Command+,',
 			click() {
-				showPreferences();
+				void showPreferences();
 			}
 		}
 	]),
@@ -199,7 +198,7 @@ const otherTemplate = [
 				label: 'Settings',
 				accelerator: 'Control+,',
 				click() {
-					showPreferences();
+					void showPreferences();
 				}
 			},
 			{
