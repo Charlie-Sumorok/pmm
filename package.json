@@ -21,7 +21,7 @@
 		"lint": "xo",
 		"test": "npm run lint",
 		"server_test": "npm run start",
-		"test_app": "npm start & sleep 5",
+		"test_app": "npm start & sleep 10",
 		"posttest_app": "killall node",
 		"start": "electron ./scripts/out/index.js",
 		"pack": "electron-builder --dir",
