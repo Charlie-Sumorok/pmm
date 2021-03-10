@@ -26,20 +26,11 @@ const gitHubRepo_MenuBar_Item = ({label, repo}: { label: string; repo: GitHubRep
 		repo_name,
 		url
 	} = repo;
-	let result;
-	if(url) {
-		result = openUrlMenuItem({
-			label: label,
-			url: url
-		})
-	} else {
-		result = openUrlMenuItem({
-			label: label,
-			url: `https://github.com/${owner}/${repo_name}`,
-		})
-	};
 
-	return result;
+	return openUrlMenuItem({
+		label,
+		url: (url ?? `https://github.com/${ owner }/${ repo_name }`)
+	})
 }
 
 class GitHubIssue {
@@ -59,7 +50,7 @@ class GitHubIssue {
 		this.labels = labels;
 		this.template = template;
 		this.title = title;
-	};
+	}
 }
 
 const get_issue_url = (repo: GitHubRepo, issue: GitHubIssue) => {
@@ -89,7 +80,7 @@ const get_issue_url = (repo: GitHubRepo, issue: GitHubIssue) => {
 
 	const issue_url = `https://github.com/${owner}/${repo_name}/issues/new?${metadata}`;
 	return issue_url;
-}
+};
 
 interface IssueTemplate_MenuBar {
 	label: string;
