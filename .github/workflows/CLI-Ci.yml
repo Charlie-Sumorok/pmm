@@ -57,4 +57,5 @@ jobs:
         run: npm add
       -
         name: Test
-        run: python3 cli/test.py
+        run: python3 ./test.py
+        working-directory: cli
