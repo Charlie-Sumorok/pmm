@@ -64,4 +64,4 @@ jobs:
         run: tsc
       -
         name: Test
-        run: npm start
+        run: npm test
