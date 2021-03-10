@@ -30,8 +30,8 @@ const gitHubRepo_MenuBar_Item = ({label, repo}: { label: string; repo: GitHubRep
 	return openUrlMenuItem({
 		label,
 		url: (url ?? `https://github.com/${ owner }/${ repo_name }`)
-	})
-}
+	});
+};
 
 class GitHubIssue {
 	assignees?: string = '';
