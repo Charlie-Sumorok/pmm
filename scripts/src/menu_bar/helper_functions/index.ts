@@ -1,9 +1,9 @@
 import path from 'path';
-import { BrowserWindow } from "electron";
+import { BrowserWindow } from 'electron';
 
 const showPreferences = async () => {
-    const win = new BrowserWindow({
-		title: "Preferences",
+	const win = new BrowserWindow({
+		title: 'Preferences',
 		show: false,
 
 		width: 600,
@@ -12,7 +12,7 @@ const showPreferences = async () => {
 		webPreferences: {
 			nodeIntegration: true
 		}
-    })
+	});
 
 	win.on('ready-to-show', () => {
 		win.show();
@@ -29,4 +29,6 @@ const showPreferences = async () => {
 	return win;
 };
 
-export { showPreferences };
+export {
+	showPreferences,
+};

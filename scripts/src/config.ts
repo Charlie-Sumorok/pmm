@@ -11,4 +11,6 @@ const storage = new Store({
 	},
 });
 
-export { storage };
+export {
+	storage,
+};

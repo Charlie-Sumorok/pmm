@@ -1,36 +1,39 @@
 import path from 'path';
-import { shell, app } from "electron";
+import {
+	shell,
+	app,
+} from 'electron';
 const {
 	debugInfo,
 	is,
 	aboutMenuItem,
 	appMenu,
-} = require("electron-util");
-import { storage } from "../config";
-import { showPreferences } from "./helper_functions";
+} = require('electron-util');
+import { storage } from '../config';
+import { showPreferences } from './helper_functions';
 import {
 	GitHubRepo,
 	GitHubIssue,
 	GitHubIssueFromTemplate,
 	GitHubRepo_MenuBar_Item,
-} from "./helper_functions/github"
+} from './helper_functions/github';
 
 
 const main_repo: GitHubRepo = {
-	owner:     "Charlie-Sumorok",
+	owner: 'Charlie-Sumorok',
 	repo_name: "ppm",
 }
 
 const feature_request = new GitHubIssue({
-	labels:   'enhancement',
+	labels: 'enhancement',
 	template: 'feature-request.md',
-	title:    'Add+Feature',
+	title: 'Add+Feature',
 })
 
 const bug_report = new GitHubIssue({
-	labels:   'bug',
+	labels: 'bug',
 	template: 'bug-report.md',
-	title:    'Bug+Report'
+	title: 'Bug+Report'
 })
 
 const bug_report_body = `
@@ -71,23 +74,23 @@ ${debugInfo()}`;
 const helpSubmenu = [
 	GitHubRepo_MenuBar_Item({
 		label: 'Website',
-		repo:  main_repo
+		repo: main_repo
 	}),
 	GitHubRepo_MenuBar_Item({
 		label: 'Source Code',
-		repo:  main_repo,
+		repo: main_repo,
 	}),
 	{
 		type: 'separator'
 	},
 	new GitHubIssueFromTemplate({
 		label: 'Report an Issue …',
-		repo:  main_repo,
+		repo: main_repo,
 		issue: bug_report
 	}),
 	new GitHubIssueFromTemplate({
 		label: 'Feature Request',
-		repo:  main_repo,
+		repo: main_repo,
 		issue: feature_request
 	}),
 ];

@@ -1,9 +1,9 @@
-import { openUrlMenuItem } from "electron-util";
+import { openUrlMenuItem } from 'electron-util';
 
 class GitHubRepo {
-	owner     = '';
+	owner = '';
 	repo_name = '';
-	url?      = '';
+	url? = '';
 	constructor(metadata: GitHubRepo) {
 		const {
 			owner,
@@ -23,7 +23,7 @@ class GitHubRepo {
 const GitHubRepo_MenuBar_Item = (
 		metadata: {
 			label: string;
-			repo:  GitHubRepo;
+			repo: GitHubRepo;
 		}
 	) => {
 		const {
@@ -52,9 +52,9 @@ const GitHubRepo_MenuBar_Item = (
 }
 class GitHubIssue {
 	assignees?: string = '';
-	labels?:    string = '';
-	template?:  string = '';
-	title?:     string = '';
+	labels?: string = '';
+	template?: string = '';
+	title?: string = '';
 
 	constructor(metadata: GitHubIssue) {
 		const {
@@ -94,7 +94,7 @@ const get_issue_url = (repo: GitHubRepo, issue: GitHubIssue) => {
 interface IssueTemplate_MenuBar {
 	label: string,
 
-	repo:  GitHubRepo,
+	repo: GitHubRepo,
 	issue: GitHubIssue,
 }
 

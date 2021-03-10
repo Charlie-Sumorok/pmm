@@ -7,7 +7,7 @@ import unhandled from 'electron-unhandled';
 import contextMenu from 'electron-context-menu';
 
 unhandled();
-// debug();
+// X debug();
 contextMenu();
 
 // Note: Must match `build.appId` in package.json
@@ -25,7 +25,7 @@ app.setAppUserModelId('com.company.AppName');
 // }
 
 // Prevent window from being garbage collected
-var mainWindow: any;
+let mainWindow: any;
 
 const createMainWindow = async () => {
 	const win = new BrowserWindow({
