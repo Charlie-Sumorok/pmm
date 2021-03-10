@@ -23,7 +23,7 @@
 		"server_test": "npm run start",
 		"test_app": "npm start & sleep 5",
 		"posttest_app": "killall node",
-		"start": "electron ./scripts/js/index.js",
+		"start": "electron ./scripts/out/index.js",
 		"pack": "electron-builder --dir",
 		"dist": "electron-builder --macos --linux --windows",
 		"release": "np"
