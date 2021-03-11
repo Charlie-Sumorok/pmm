@@ -71,7 +71,7 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
         working-directory: cli
       -
-        name: Test with pytest
+        name: Lint with pyflakes
         run: |
           pyflakes .
         working-directory: cli
