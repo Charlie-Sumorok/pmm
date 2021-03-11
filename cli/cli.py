@@ -8,7 +8,6 @@ options = {
 	"home": "{package_manager_name}",
 	"info": "{package_manager_name}",
 	"init": "",
-	"help": "<command>",
 	"h": "-> help",
 	"list": "",
 	"ls": "-> list",
