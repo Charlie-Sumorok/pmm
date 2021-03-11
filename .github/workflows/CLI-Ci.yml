@@ -73,5 +73,5 @@ jobs:
       -
         name: Test with pytest
         run: |
-          pytest
+          pyflakes .
         working-directory: cli
