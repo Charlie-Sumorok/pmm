@@ -63,7 +63,6 @@ jobs:
               pip install -r requirements.txt;
             fi
         working-directory: cli
-        shell: bash
       -
         name: Lint with flake8
         run: |
@@ -72,15 +71,11 @@ jobs:
           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
         working-directory: cli
-        shell: bash
       -
         name: Lint with pyflakes
         run: pyflakes .
         working-directory: cli
-        shell: bash
       -
         name: Test
         run: python3 test.py
         working-directory: cli
-        shell: bash
-
