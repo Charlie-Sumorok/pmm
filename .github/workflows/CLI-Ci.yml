@@ -5,10 +5,6 @@ on:
   pull_request:
   workflow_dispatch:
 
-env:
-  SHELL_USED: bash
-  CLI_DIR: cli
-
 jobs:
 #  lint:
 #      name: Lint
@@ -40,6 +36,9 @@ jobs:
     name: Test
 #    needs: lint
     runs-on: ${{ matrix.os }}
+    env:
+      SHELL_USED: bash
+      CLI_DIR: cli
     timeout-minutes: 60
     strategy:
       fail-fast: false
