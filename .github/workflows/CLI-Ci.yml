@@ -65,7 +65,7 @@ jobs:
             then
               pip install -r requirements.txt;
             fi
-        working-directory: ${{ env.CLI_DIR }}
+        working-directory: $CLI_DIR
         shell: $SHELL_USED
       -
         name: Lint with flake8
