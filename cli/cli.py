@@ -2,6 +2,10 @@
 
 import sys
 
+__all__ = [
+	'cli'
+]
+
 options = {
 	"update": "",
 	"upgrade": "{package_manager_name}",
@@ -18,7 +22,9 @@ options = {
 		"{package_manager_name}@<package_manager_version>",
 		"{git_remote}",
 		"{github_username}/{github_project}",
-		"--package_managers-file my-package_managers.txt"
+		"--package_managers-file my-package_managers.txt",
+		"--file my-package_managers.txt",
+		"-f my-package_managers.txt",
 	},
 	"i": "-> install",
 	"uninstall": "[{package_manager_name}...]",
@@ -44,7 +50,7 @@ options = {
 
 error = NotImplementedError("That command has not been implemented yet")
 
-def main(*arguments):
+def cli(*arguments):
 	if len(sys.argv) > 1:
 		subcommand = sys.argv[1]
 		if subcommand in list(options.keys()):
@@ -59,12 +65,11 @@ def main(*arguments):
 		if f'{subcommand}' in [option for option in options.keys()]:
 			command_file = open(f'./commands/{subcommand}.py', "r");
 			contents = command_file.read()
-			exec(f'{command_file.read()}')
+			exec(f'{contents}')
 			command_file.close()
 		else:
 			raise error
 	else:
-		import cli
-		cli.main('help')
+		cli('help')
 if __name__ == '__main__':
-	main()
+	cli()
