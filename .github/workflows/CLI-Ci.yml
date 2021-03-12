@@ -44,6 +44,9 @@ jobs:
           - ubuntu-latest
           - macos-latest
           - windows-latest
+    env:
+      shell_used: bash
+      cli_dir: cli
 
     steps:
       -
@@ -62,7 +65,8 @@ jobs:
             then
               pip install -r requirements.txt;
             fi
-        working-directory: cli
+        working-directory: ${{ env.cli_dir }}
+        shell: ${{ env.shell_used }}
       -
         name: Lint with flake8
         run: |
@@ -70,12 +74,15 @@ jobs:
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-        working-directory: cli
+        working-directory: ${{ env.cli_dir }}
+        shell: ${{ env.shell_used }}
       -
         name: Lint with pyflakes
         run: pyflakes .
-        working-directory: cli
+        working-directory: ${{ env.cli_dir }}
+        shell: ${{ env.shell_used }}
       -
         name: Test
         run: python3 test.py
-        working-directory: cli
+        working-directory: ${{ env.cli_dir }}
+        shell: ${{ env.shell_used }}
