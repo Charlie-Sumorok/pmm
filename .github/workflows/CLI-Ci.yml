@@ -80,7 +80,7 @@ jobs:
         name: Lint with pyflakes
         run: pyflakes .
         working-directory: ${{ env.CLI_DIR }}
-        shell: ${{ env.SHELL_USED }}
+        shell: $SHELL_USED
       -
         name: Test
         run: python3 test.py
