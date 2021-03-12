@@ -5,6 +5,10 @@ on:
   pull_request:
   workflow_dispatch:
 
+env:
+      shell_used: bash
+      cli_dir: cli
+
 jobs:
 #  lint:
 #      name: Lint
@@ -44,9 +48,6 @@ jobs:
           - ubuntu-latest
           - macos-latest
           - windows-latest
-    env:
-      shell_used: bash
-      cli_dir: cli
 
     steps:
       -
