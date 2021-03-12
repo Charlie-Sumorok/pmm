@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 
-from cli import main_func
+from cli import cli
 
 subcommands = {
 	"update": "",
@@ -46,4 +46,4 @@ subcommands = {
 
 for subcommand in subcommands.keys():
 	print(subcommand)
-	main_func(subcommand)
+	cli(subcommand)
