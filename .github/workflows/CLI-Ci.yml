@@ -94,4 +94,5 @@ jobs:
         name: Test
         run: pypy test.py
         working-directory: cli
+        shell: bash
 
