@@ -1,3 +1,7 @@
+#! /usr/bin/env python3
+
+from cli import main_func
+
 subcommands = {
 	"update": "",
 	"upgrade": "{package_manager_name}",
@@ -14,7 +18,9 @@ subcommands = {
 		"{package_manager_name}@<package_manager_version>",
 		"{git_remote}",
 		"{github_username}/{github_project}",
-		"--package_managers-file my-package_managers.txt"
+		"--package_managers-file my-package_managers.txt",
+		"--file my-package_managers.txt",
+		"-f my-package_managers.txt",
 	},
 	"i": "-> install",
 	"uninstall": "[{package_manager_name}...]",
@@ -39,6 +45,5 @@ subcommands = {
 }
 
 for subcommand in subcommands.keys():
-	import cli
 	print(subcommand)
-	cli.main(subcommand)
+	main_func(subcommand)
