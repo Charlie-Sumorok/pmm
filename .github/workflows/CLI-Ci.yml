@@ -32,8 +32,8 @@ jobs:
 #          name: Lint
 #          run: npm test
 
-  test:
-    name: Test
+  lint:
+    name: Lint
 #    needs: lint
     runs-on: ${{ matrix.os }}
     timeout-minutes: 60
@@ -90,4 +90,16 @@ jobs:
         run: pyflakes .
         working-directory: cli
         shell: bash
+  
+  test:
+    name: Test
+    needs: lint
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
 
