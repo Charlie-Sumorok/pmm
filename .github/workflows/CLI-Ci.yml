@@ -49,7 +49,7 @@ jobs:
             pip install flake8 pytest
 
             if [[ -f requirements.txt ]]
-            then;
+            then
               pip install -r requirements.txt;
             fi
         include:
