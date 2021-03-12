@@ -93,7 +93,7 @@ jobs:
         shell: bash
       -
         name: Test
-        run: pypy3 test.py
+        run: python3 test.py
         working-directory: cli
         shell: bash
 
