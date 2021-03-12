@@ -44,6 +44,9 @@ jobs:
           - ubuntu-latest
           - macos-latest
           - windows-latest
+        test_command:
+          - npm run server_test
+          - npm run test_app
 
     steps:
       -
@@ -64,4 +67,4 @@ jobs:
         run: tsc
       -
         name: Test
-        run: npm run server_test
+        run: ${{ matrix.test_command }}
