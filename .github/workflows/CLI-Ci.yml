@@ -46,7 +46,7 @@ jobs:
           - windows-latest
         installation:
           - python -m pip install --upgrade pip;
-            pip install flake8 pytest;
+            pip install flake8 pytest
 
             if [[ -f requirements.txt ]];
             then;
@@ -58,7 +58,7 @@ jobs:
               windows-latest
             installation: |
               python -m pip install --upgrade pip;
-              pip install flake8 pytest;
+              pip install flake8 pytest
 
               if ( -f requirements.txt ) {
                 pip install -r requirements.txt
