@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
 
 env:
-      shell_used: bash
-      cli_dir: cli
+  shell_used: bash
+  cli_dir: cli
 
 jobs:
 #  lint:
