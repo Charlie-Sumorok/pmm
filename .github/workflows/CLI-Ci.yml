@@ -53,17 +53,6 @@ jobs:
             then
               pip install -r requirements.txt;
             fi
-        include:
-          -
-            os:
-              windows-latest
-            installation: |
-              python -m pip install --upgrade pip;
-              pip install flake8 pytest
-
-              if ( -f requirements.txt ) {
-                pip install -r requirements.txt
-              }
 
     steps:
       -
