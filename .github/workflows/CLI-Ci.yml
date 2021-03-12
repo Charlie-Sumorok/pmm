@@ -85,4 +85,4 @@ jobs:
         name: Test
         run: python3 test.py
         working-directory: ${{ env.CLI_DIR }}
-        shell: ${{ env.SHELL_USED }}
+        shell: $SHELL_USED
