@@ -44,6 +44,8 @@ jobs:
           - ubuntu-latest
           - macos-latest
           - windows-latest
+    env:
+      HAS_DEPENDENCIES: false
 
     steps:
       -
@@ -58,7 +60,7 @@ jobs:
           python -m pip install --upgrade pip;
           pip install flake8 pytest
 
-          if [[ -f requirements.txt ]]
+          if [[ -f requirements.txt && $HAS_DEPENDENCIES ]]
           then
             pip install -r requirements.txt;
           fi
