@@ -62,7 +62,7 @@ jobs:
       -
         name: Setup TypeScript
         if: ${{ matrix.os == 'macos-latest' }}
-        run: brew install typescript; echo "TypeScript is Setup"
+        run: brew install typescript
         shell: bash
       -
         name: Complie TypeScript
