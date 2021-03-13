@@ -47,6 +47,7 @@ jobs:
         test_command:
           - npm run server_test
           - npm run test_app
+          - npm run test
 
     steps:
       -
