@@ -4,13 +4,12 @@ import {
 	app,
 } from 'electron';
 
-import util from 'electron-util';
 const {
 	debugInfo,
 	is,
 	aboutMenuItem,
 	appMenu,
-} = util;
+} = require('electron-util');
 
 import { storage } from '../config';
 import { showPreferences } from './helper_functions';
