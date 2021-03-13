@@ -44,9 +44,6 @@ jobs:
           - ubuntu-latest
           - macos-latest
           - windows-latest
-        SHELL_USED:
-          - bash
-          - powershell
 
     steps:
       -
