@@ -51,6 +51,7 @@ jobs:
           - npm run server_test
           - npm run test_app
           - npm run test
+      max-parallel: 2
 
     steps:
       -
