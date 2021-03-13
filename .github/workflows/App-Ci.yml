@@ -49,7 +49,6 @@ jobs:
           - npm run server_test & sleep 60;killall node
           - npm run test_app
           - npm run test
-          - sleep 60
         include:
           -
             os:
