@@ -58,13 +58,17 @@ jobs:
       -
         name: Setup node_modules/
         run: npm add
+        shell: bash
       -
         name: Setup TypeScript
         if: ${{ matrix.os == 'macos-latest' }}
         run: brew install typescript; echo "TypeScript is Setup"
+        shell: bash
       -
         name: Complie TypeScript
         run: tsc
+        shell: bash
       -
         name: Test
         run: ${{ matrix.test_command }}
+        shell: bash
