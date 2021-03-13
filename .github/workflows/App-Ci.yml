@@ -48,6 +48,12 @@ jobs:
           - npm run server_test
           - npm run server_test & sleep 60;killall node
           - npm run test
+        include:
+          -
+            os:
+             ubuntu-latest
+            test_command:
+              npm run test_app
 
     steps:
       -
