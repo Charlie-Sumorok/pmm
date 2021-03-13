@@ -37,7 +37,6 @@ jobs:
 #    needs: lint
     runs-on: ${{ matrix.os }}
     env:
-      SHELL_USED: bash
       CLI_DIR: cli
     timeout-minutes: 60
     strategy:
@@ -47,6 +46,9 @@ jobs:
           - ubuntu-latest
           - macos-latest
           - windows-latest
+        SHELL_USED:
+          - bash
+          - powershell
 
     steps:
       -
