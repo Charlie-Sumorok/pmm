@@ -71,3 +71,4 @@ jobs:
       -
         name: Test
         run: ${{ matrix.test_command }}
+        shell: bash
