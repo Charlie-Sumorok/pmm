@@ -44,16 +44,10 @@ jobs:
           - ubuntu-latest
           - macos-latest
           - windows-latest
-        test_command:
+        command:
           - npm run server_test
           - npm run test_app
           - npm run test
-        include:
-          -
-            os:
-             ubuntu-latest
-            test_command:
-              npm run test_app
 
     steps:
       -
@@ -77,5 +71,5 @@ jobs:
         shell: bash
       -
         name: Test
-        run: ${{ matrix.test_command }}
+        run: ${{ matrix.command }}
         shell: bash
