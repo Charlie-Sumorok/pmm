@@ -48,7 +48,6 @@ jobs:
           - npm run server_test
           - npm run test_app
           - npm run test
-          - sleep 10
         include:
           -
             os:
