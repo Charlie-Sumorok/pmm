@@ -46,9 +46,7 @@ jobs:
           - windows-latest
         test_command:
           - npm run server_test
-          - |
-              npm run server_test & sleep 60
-              killall node
+          - npm run server_test & sleep 60;killall node
           - npm run test
 
     steps:
