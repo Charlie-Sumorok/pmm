@@ -3,19 +3,15 @@ import {
 	shell,
 	app,
 } from 'electron';
+
 import util from 'electron-util';
-/* X const {
+const {
 	debugInfo,
 	is,
 	aboutMenuItem,
 	appMenu,
-} = util; */
-/* X const {
-	debugInfo,
-	is,
-	aboutMenuItem,
-	appMenu,
-} = require('electron-util'); */
+} = util;
+
 import { storage } from '../config';
 import { showPreferences } from './helper_functions';
 import {
