@@ -36,8 +36,6 @@ jobs:
     name: Test
 #    needs: lint
     runs-on: ${{ matrix.os }}
-    env:
-      CLI_DIR: cli
     timeout-minutes: 60
     strategy:
       fail-fast: false
@@ -67,8 +65,8 @@ jobs:
             then
               pip install -r requirements.txt;
             fi
-        working-directory: $CLI_DIR
-        shell: $SHELL_USED
+        working-directory: cli
+        shell: bash
       -
         name: Lint with flake8
         run: |
@@ -76,15 +74,15 @@ jobs:
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-        working-directory: $CLI_DIR
-        shell: $SHELL_USED
+        working-directory: cli
+        shell: bash
       -
         name: Lint with pyflakes
         run: pyflakes .
-        working-directory: $CLI_DIR
-        shell: $SHELL_USED
+        working-directory: cli
+        shell: bash
       -
         name: Test
         run: python3 test.py
-        working-directory: $CLI_DIR
-        shell: $SHELL_USED
+        working-directory: cli
+        shell: bash
