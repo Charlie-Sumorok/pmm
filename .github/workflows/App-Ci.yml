@@ -64,7 +64,7 @@ jobs:
       -
         name: Setup node_modules/
         run: npm add
-        shell: matrix.shell
+        shell: ${{ matrix.shell }}
       -
         name: Setup TypeScript
         if: ${{ matrix.os == 'macos-latest' }}
