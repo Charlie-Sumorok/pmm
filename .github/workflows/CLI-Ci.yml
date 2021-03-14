@@ -5,7 +5,8 @@ on:
   pull_request:
   schedule:
     # Once every day at midnight UTC
-    - cron: "*/59 * * * *"
+    -
+      cron: "*/59 * * * *"
   workflow_dispatch:
 
 jobs:
