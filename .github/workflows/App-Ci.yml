@@ -73,7 +73,7 @@ jobs:
       -
         name: Complie TypeScript
         run: tsc
-        shell: matrix.shell_used
+        shell: ${{ matrix.shell_used }}
       -
         name: Test
         run: npm run test
