@@ -43,4 +43,4 @@ jobs:
         run: npm run test_app
       -
         name: commit
-        run: git commit
+        run: git commit -m "Auto"
