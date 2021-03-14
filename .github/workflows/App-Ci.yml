@@ -48,6 +48,10 @@ jobs:
           - ubuntu-latest
           - macos-latest
           - windows-latest
+        shell:
+          - zsh
+          - bash
+          - powrshell
       max-parallel: 2
 
     steps:
@@ -60,13 +64,17 @@ jobs:
       -
         name: Setup node_modules/
         run: npm add
+        shell: ${{ matrix.shell }}
       -
         name: Setup TypeScript
         if: ${{ matrix.os == 'macos-latest' }}
         run: brew install typescript
+        shell: ${{ matrix.shell }}
       -
         name: Complie TypeScript
         run: tsc
+        shell: ${{ matrix.shell }}
       -
         name: Test
         run: npm run test
+        shell: ${{ matrix.shell }}
