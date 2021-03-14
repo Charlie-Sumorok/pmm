@@ -51,7 +51,7 @@ jobs:
         shell_used:
           - zsh
           - bash
-          - powrshell
+          - powershell
       max-parallel: 2
 
     steps:
