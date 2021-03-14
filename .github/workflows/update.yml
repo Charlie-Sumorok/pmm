@@ -36,11 +36,11 @@ jobs:
         name: Update
         run: npm update
       -
-        name: lint
+        name: Lint
         run: npm test
       -
-        name: test
+        name: Test
         run: npm run test_app
       -
-        name: commit
+        name: Commit
         run: git commit -m "Auto"
