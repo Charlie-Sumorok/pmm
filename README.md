@@ -1,3 +1,6 @@
+# PMM
+> A package manager for package managers
+
 <table>
 	<tr id="header">
 		<th />
@@ -51,36 +54,3 @@
 		</td>
 	</tr>
 </table>
-
-<style>
-	td,
-	th {
-		border: 1px solid rgb(190, 190, 190);
-		padding: 10px;
-	}
-
-	td {
-		text-align: center;
-	}
-</style>
-
-[![Electron][Electron-Badge]][Electron-Link]
-[![App-CI][App-Ci-badge]][App-Ci-workflow] \
-[![Python][Python-Badge]][Python-Link]
-[![CLI-CI][CLI-Ci-badge]][CLI-Ci-workflow] \
-[]()
-
-[App-Ci-badge]: https://github.com/Charlie-Sumorok/pmm/actions/workflows/App-Ci.yml/badge.svg
-[App-Ci-workflow]: https://github.com/Charlie-Sumorok/pmm/actions/workflows/App-Ci.yml
-
-[CLI-Ci-badge]: https://github.com/Charlie-Sumorok/pmm/actions/workflows/CLI-Ci.yml/badge.svg
-[CLI-Ci-workflow]: https://github.com/Charlie-Sumorok/pmm/actions/workflows/CLI-Ci.yml
-
-# PMM
-> A package manager for package managers
-
-[Electron-Badge]: https://img.shields.io/badge/Built%20With-Electron-8ce6f8?style=plasic&logo=electron&labelColor=22252f
-[Electron-Link]: https://electronjs.org
-
-[Python-Badge]: https://img.shields.io/badge/Built%20With-Python-blue?style=plasic&logo=python&labelColor=yellow
-[Python-Link]: https://python.org
