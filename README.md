@@ -1,55 +1,68 @@
 <table>
-	<thead>
-		<th> CLI </th>
-		<th> App </th>
-	</thead> <!-- CLI-CI </thead> -->
-	<tbody>
-		<tr>
-			<td>
-				<a
-				href="https://python.org"
-				title="Built With Python">
-					<img
-					src="https://img.shields.io/badge/Built%20With-Python-blue?style=plasic&logo=python&labelColor=yellow"
+	<tr id="header">
+		<th />
+		<th scope="col"> Tool </th>
+		<th scope="col"> CI </th>
+	</tr>
+	<tr>
+		<th scope="row"> Cli </th>
+		<td>
+			<a
+			href="https://python.org"
+			title="Built With Python">
+				<img
+				src="https://img.shields.io/badge/Built%20With-Python-blue?style=plasic&logo=python&labelColor=yellow"
+				alt="Electron"
+				/>
+			</a>
+		</td>
+		<td>
+			<a
+			href="https://github.com/Charlie-Sumorok/pmm/actions/workflows/CLI-Ci.yml"
+			title="CLI CI">
+				<img
+					src="https://github.com/Charlie-Sumorok/pmm/actions/workflows/CLI-Ci.yml/badge.svg"
+					alt="CLI-CI"
+				/>
+			</a>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row"> App </th>
+		<td>
+			<a
+				href="https://electronjs.org"
+				title="Built With Electron">
+				<img
+					src="https://img.shields.io/badge/Built%20With-Electron-8ce6f8?style=plasic&logo=electron&labelColor=22252f"
 					alt="Electron"
-					/>
-				</a>
-			</td>
-			<td>
-				<a
-					href="https://electronjs.org"
-					title="Built With Electron">
-					<img
-						src="https://img.shields.io/badge/Built%20With-Electron-8ce6f8?style=plasic&logo=electron&labelColor=22252f"
-						alt="Electron"
-					/>
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<a
-					href="https://github.com/Charlie-Sumorok/pmm/actions/workflows/CLI-Ci.yml"
-					title="CLI CI">
-					<img
-						src="https://github.com/Charlie-Sumorok/pmm/actions/workflows/CLI-Ci.yml/badge.svg"
-						alt="CLI-CI"
-					/>
-				</a>
-			</td>
-			<td>
-				<a
-					href="https://github.com/Charlie-Sumorok/pmm/actions/workflows/App-Ci.yml"
-					title="App CI">
-					<img
-						src="https://github.com/Charlie-Sumorok/pmm/actions/workflows/App-Ci.yml/badge.svg"
-						alt="App-CI"
-					/>
-				</a>
-			</td>
-		</tr>
-	</tbody>
+				/>
+			</a>
+		</td>
+		<td>
+			<a
+				href="https://github.com/Charlie-Sumorok/pmm/actions/workflows/App-Ci.yml"
+				title="App CI">
+				<img
+					src="https://github.com/Charlie-Sumorok/pmm/actions/workflows/App-Ci.yml/badge.svg"
+					alt="App-CI"
+				/>
+			</a>
+		</td>
+	</tr>
 </table>
+
+<style>
+	td,
+	th {
+		border: 1px solid rgb(190, 190, 190);
+		padding: 10px;
+	}
+
+	td {
+		text-align: center;
+	}
+</style>
 
 [![Electron][Electron-Badge]][Electron-Link]
 [![App-CI][App-Ci-badge]][App-Ci-workflow] \
