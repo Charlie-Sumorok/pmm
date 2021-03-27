@@ -54,9 +54,8 @@ def cli(*arguments):
 	if len(sys.argv) > 1:
 		subcommand = sys.argv[1]
 		if subcommand in list(options.keys()):
-			command_file = open(f'commands/{subcommand}.py', "r");
-			exec(f'{command_file.read()}')
-			command_file.close()
+			with open(f'commands/{subcommand}.py', "r") as command_file:
+				exec(f'{command_file.read()}')
 		else:
 			raise error
 	elif len(arguments) >= 1:
