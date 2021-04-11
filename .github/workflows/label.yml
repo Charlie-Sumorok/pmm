@@ -24,5 +24,3 @@ jobs:
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         configuration-path: .github/label.yml
-        enable-versioned-regex: false
-        
