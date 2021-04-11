@@ -21,3 +21,5 @@ jobs:
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
     - uses: github/issue-labeler@v2.0
+      with:
+        configuration-path: .github/label.yml
