@@ -1,4 +1,4 @@
 :root {
-	--one-light-syntax-text-color: #383A41;
-	--one-light-syntax-link-color: #0084BC;
+	--one-light-syntax-text-color: hsl(227, 7%, 24%);
+	--one-light-syntax-link-color: hsl(198, 100%, 37%);
 }

@@ -1,7 +1,7 @@
 :root {
-	--one-light-ui-background-color: #FAFAFA;
+	--one-light-ui-background-color: hsl(0, 0%, 98%);
 
-	--one-light-ui-button-background: #EAEAEB;
-	--one-light-ui-button-hover: #F8F8F8;
-	--one-light-ui-button-pressed: #F5F5F5;
+	--one-light-ui-button-background: hsl(240, 2%, 92%);
+	--one-light-ui-button-hover: hsl(0, 0%, 97%);
+	--one-light-ui-button-pressed: hsl(0, 0%, 96%);
 }
