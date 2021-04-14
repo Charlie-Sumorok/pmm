@@ -1,18 +1,18 @@
 /* import one-dark theme */
-@import "one-dark/one-dark-ui.css";
-@import "one-dark/one-dark-syntax.css";
+@import 'one-dark/one-dark-ui.css';
+@import 'one-dark/one-dark-syntax.css';
 
 /* import one-light theme */
-@import "one-light/one-light-ui.css";
-@import "one-light/one-light-syntax.css";
+@import 'one-light/one-light-ui.css';
+@import 'one-light/one-light-syntax.css';
 
 :root {
-	--background-color: var(--one-dark-ui-background-color, #282C34);
+	--background-color: var(--one-dark-ui-background-color);
 
-	--button-background: var(--one-dark-ui-button-background, #21252B);
-	--button-hover: var(--one-dark-ui-button-hover, #3E4351);
-	--button-pressed: var(--one-dark-ui-button-pressed, #2C313A);
+	--button-background: var(--one-dark-ui-button-background);
+	--button-hover: var(--one-dark-ui-button-hover);
+	--button-pressed: var(--one-dark-ui-button-pressed);
 
-	--text-color: var(--one-dark-syntax-text-color, #ABB2BF);
-	--link-color: var(--one-dark-syntax-link-color, #4BA0AB);
+	--text-color: var(--one-dark-syntax-text-color);
+	--link-color: var(--one-dark-syntax-link-color);
 }

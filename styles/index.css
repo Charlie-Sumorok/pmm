@@ -1,14 +1,14 @@
-@import "themes/controller.css";
+@import 'themes/controller.css';
 
 :root {
 	--min-width: 15rem;
-	color: var(--text-color, #ABB2BF);
+	color: var(--text-color);
 }
 
 a {
-	color: var(--link-color, #4BA0AB);
+	color: var(--link-color);
 }
 
 body {
-	background: var(--background-color, #282C34);
+	background: var(--background-color);
 }

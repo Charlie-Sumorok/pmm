@@ -1,11 +1,11 @@
-@import "./index.css";
+@import './index.css';
 
 .navbar {
 	display: grid;
-	background-color: var(--background-color, #282C34);
+	background-color: var(--background-color);
 	gap: 1rem;
 	margin: 1rem;
-	grid-template-columns: repeat( auto-fit, minmax( var(--min-width, 15rem), 1fr ) );
+	grid-template-columns: repeat(auto-fit, minmax(var(--min-width), 1fr));
 
 	list-style: none;
 	justify-content: space-evenly;
@@ -13,16 +13,16 @@
 }
 
 .nav-item {
-	background: var(--button-background, #21252B);
+	background: var(--button-background);
 	border-radius: 5px;
 }
 
 .nav-item:hover {
-	background: var(--button-hover, #3E4351);
+	background: var(--button-hover);
 }
 
 .nav-item:active {
-	background: var(--button-pressed, #2C313A);
+	background: var(--button-pressed);
 }
 
 .nav-item:focus {
