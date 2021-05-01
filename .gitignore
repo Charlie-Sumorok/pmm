@@ -1,5 +1,6 @@
-# Created by https://www.toptal.com/developers/gitignore/api/node,macos,linux,vscode,windows,python
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,macos,linux,vscode,windows,python
+
+# Created by https://www.toptal.com/developers/gitignore/api/sass,node,macos,linux,windows,python
+# Edit at https://www.toptal.com/developers/gitignore?templates=sass,node,macos,linux,windows,python
 
 ### Linux ###
 *~
@@ -308,24 +309,23 @@ dmypy.json
 .pytype/
 
 # operating system-related files
-*.DS_Store #file properties cache/storage on macOS
-Thumbs.db #thumbnail cache on Windows
+# file properties cache/storage on macOS
+*.DS_Store
+# thumbnail cache on Windows
+Thumbs.db
 
 # profiling data
 .prof
 
 
-### vscode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.code-workspace
+### Sass ###
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
 
 ### Windows ###
 # Windows thumbnail cache files
-Thumbs.db
 Thumbs.db:encryptable
 ehthumbs.db
 ehthumbs_vista.db
@@ -349,6 +349,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/node,macos,linux,vscode,windows,python
+# End of https://www.toptal.com/developers/gitignore/api/sass,node,macos,linux,windows,python
 
 out/
