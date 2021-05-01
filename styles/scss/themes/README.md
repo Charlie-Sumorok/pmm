@@ -1,4 +1,4 @@
-# Visual Web Core Themes
+# PMM Core Themes
 
 This folder contains the core themes
 

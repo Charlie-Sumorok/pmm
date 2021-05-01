@@ -1,6 +1,6 @@
-@import './index.css';
+@use 'main';
 
-#preferenceSections {
+.navbar {
 	display: grid;
 	background-color: var(--background-color);
 	gap: 1rem;
@@ -12,19 +12,19 @@
 	align-items: center;
 }
 
-.preferenceSection {
+.nav-item {
 	background: var(--button-background);
 	border-radius: 5px;
-}
 
-.preferenceSection:hover {
-	background: var(--button-hover);
-}
+	&:hover {
+		background: var(--button-hover);
+	}
 
-.preferenceSection:active {
-	background: var(--button-pressed);
-}
+	&:active {
+		background: var(--button-pressed);
+	}
 
-.preferenceSection:focus {
-	outline: 0;
+	&:focus {
+		outline: 0;
+	}
 }

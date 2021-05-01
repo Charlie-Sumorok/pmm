@@ -1,6 +1,6 @@
-@import 'themes/controller.css';
+@use 'themes';
 
-:root {
+* {
 	--min-width: 15rem;
 	color: var(--text-color);
 }

@@ -1,0 +1,14 @@
+@use 'one-dark';
+@use 'one-light';
+
+.one-dark {
+	@each $name, $color in one-dark.$colors {
+		--#{$name}: #{$color};
+	}
+}
+
+.one-light {
+	@each $name, $color in one-light.$colors {
+		--#{$name}: #{$color};
+	}
+}
