@@ -1,0 +1,14 @@
+@use 'themes';
+
+* {
+	--min-width: 15rem;
+	color: var(--text-color);
+}
+
+a {
+	color: var(--link-color);
+}
+
+body {
+	background: var(--background-color);
+}

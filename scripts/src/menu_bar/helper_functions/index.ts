@@ -10,8 +10,8 @@ const showPreferences = async () => {
 		height: 450,
 
 		webPreferences: {
-			nodeIntegration: true
-		}
+			nodeIntegration: true,
+		},
 	});
 
 	win.on('ready-to-show', () => {
@@ -19,16 +19,10 @@ const showPreferences = async () => {
 	});
 
 	await win.loadFile(
-		path.join(
-			__dirname,
-			'../../../views/',
-			'preferences.html',
-		)
+		path.join(__dirname, '../../../../views/', 'preferences.html')
 	);
 
 	return win;
 };
 
-export {
-	showPreferences,
-};
+export { showPreferences };

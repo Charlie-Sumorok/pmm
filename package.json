@@ -22,7 +22,7 @@
 		"test": "npm run lint",
 		"dev:scripts": "tsc --watch",
 		"dev:styles": "sass --watch styles/scss:styles/css",
-		"dev": "npm run dev:scripts && npm run dev:styles",
+		"dev": "concurrently 'npm run dev:scripts' 'npm run dev:styles'",
 		"test_app": "npm start & sleep 10",
 		"posttest_app": "killall node",
 		"start": "electron ./scripts/out/index.js",
@@ -31,6 +31,7 @@
 		"release": "np"
 	},
 	"dependencies": {
+		"concurrently": "^6.0.2",
 		"electron-context-menu": "^0.15.0",
 		"electron-debug": "^3.0.0",
 		"electron-store": "^5.1.0",
