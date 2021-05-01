@@ -1,12 +1,10 @@
 $colors: (
-	ui: (
-		background-color: hsl(220, 13%, 18%),
-		button-background: hsl(216, 13%, 15%),
-		button-hover: hsl(224, 13%, 28%),
-		button-pressed: hsl(219, 14%, 20%),
-	),
-	syntax: (
-		text-color: hsl(219, 14%, 71%),
-		link-color: hsl(187, 39%, 48%),
-	),
+	// UI
+	background-color: hsl(220, 13%, 18%),
+	button-background: hsl(216, 13%, 15%),
+	button-hover: hsl(224, 13%, 28%),
+	button-pressed: hsl(219, 14%, 20%),
+	// SYNTAX
+	text-color: hsl(219, 14%, 71%),
+	link-color: hsl(187, 39%, 48%)
 );
