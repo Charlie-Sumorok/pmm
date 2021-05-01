@@ -5,40 +5,35 @@ on:
   pull_request:
   schedule:
     # Once every 23 hours and 59 minutes
-    -
-      cron: "*/59 */23 * * *"
+    - cron: '*/59 */23 * * *'
   workflow_dispatch:
 
 jobs:
-#  lint:
-#      name: Lint
-#      runs-on: ${{ matrix.os }}
-#      timeout-minutes: 60
-#      strategy:
-#        fail-fast: false
-#        matrix:
-#          os:
-#            - ubuntu-latest
-#            - macos-latest
-#            - windows-latest
-#
-#      steps:
-#        -
-#          name: Setup Terminal
-#          uses: actions/checkout@v2
-#        -
-#          name: Setup Node.js
-#          uses: actions/setup-node@v2
-#        -
-#          name: Setup node_modules/
-#          run: npm add
-#        -
-#          name: Lint
-#          run: npm test
+  lint:
+    name: Lint
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+
+    steps:
+      - name: Setup Terminal
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+      - name: Setup node_modules/
+        run: npm add
+      - name: Lint
+        run: npm test
 
   test:
     name: Test
-#    needs: lint
+    needs: lint
     runs-on: ${{ matrix.os }}
     timeout-minutes: 60
     strategy:
@@ -51,26 +46,18 @@ jobs:
       max-parallel: 2
 
     steps:
-      -
-        name: Setup Terminal
+      - name: Setup Terminal
         uses: actions/checkout@v2
-      -
-        name: Setup Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v2
-      -
-        name: Setup node_modules/
+      - name: Setup node_modules/
         run: npm add
-        shell: bash
-      -
-        name: Setup TypeScript
+      - name: Setup TypeScript
         if: ${{ matrix.os == 'macos-latest' }}
         run: brew install typescript
-        shell: bash
-      -
-        name: Complie TypeScript
+      - name: Complie TypeScript
         run: tsc
-        shell: bash
-      -
-        name: Test
+      - name: Test
         run: npm run test
-        shell: bash
+      - name: Compile SCSS
+        run: npx sass styles/scss:styles/css
