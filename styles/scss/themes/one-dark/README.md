@@ -5,4 +5,4 @@ Based off of Atom's One Dark [UI][one-dark-ui] and [syntax][one-dark-syntax] the
 [one-dark-syntax]: https://github.com/atom/atom/tree/master/packages/one-dark-syntax
 <!-- ## Screenshots -->
 
-## [Author](https://github.com/Charlie-Sumorok)
+[Author](https://github.com/Charlie-Sumorok)
