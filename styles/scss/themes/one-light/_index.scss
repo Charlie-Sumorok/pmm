@@ -5,5 +5,8 @@ $colors: (
 		button-hover: hsl(0, 0%, 97%),
 		button-pressed: hsl(0, 0%, 96%),
 	),
-	syntax: (),
+	syntax: (
+		text-color: hsl(227, 7%, 24%),
+		link-color: hsl(198, 100%, 37%),
+	),
 );
