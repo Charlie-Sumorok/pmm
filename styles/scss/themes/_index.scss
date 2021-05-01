@@ -1,14 +1,15 @@
 @use 'one-dark';
 @use 'one-light';
 
-.one-dark {
-	@each $name, $color in one-dark.$colors {
-		--#{$name}: #{$color};
-	}
-}
+$themes: (
+	one-dark: one-dark.$colors,
+	one-light: one-light.$colors,
+);
 
-.one-light {
-	@each $name, $color in one-light.$colors {
-		--#{$name}: #{$color};
+@each $theme-name, $colors in $themes {
+	.#{$theme-name} {
+		@each $name, $color in $colors {
+			--#{$name}: #{$color};
+		}
 	}
 }
