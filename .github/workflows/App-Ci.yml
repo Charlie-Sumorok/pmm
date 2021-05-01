@@ -60,4 +60,5 @@ jobs:
       - name: Test
         run: npm run test
       - name: Compile SCSS
-        run: npx sass styles/scss:styles/css
+        run: npx sass scss:css
+        working-directory: styles
