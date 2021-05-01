@@ -1,5 +1,5 @@
 import path from 'path';
-import { app, BrowserWindow, Menu, } from 'electron';
+import { app, BrowserWindow, Menu } from 'electron';
 /// import { autoUpdater } from 'electron-updater';
 import { is } from 'electron-util';
 import { menu } from './menu_bar';
@@ -36,8 +36,8 @@ const createMainWindow = async () => {
 		height: 600,
 
 		webPreferences: {
-			nodeIntegration: true
-		}
+			nodeIntegration: true,
+		},
 	});
 
 	win.on('ready-to-show', () => {
@@ -50,13 +50,7 @@ const createMainWindow = async () => {
 		mainWindow = undefined;
 	});
 
-	await win.loadFile(
-		path.join(
-			__dirname,
-			'../../views/',
-			'index.html',
-		)
-	);
+	await win.loadFile(path.join(__dirname, '../../views/', 'index.html'));
 
 	return win;
 };
