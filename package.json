@@ -3,14 +3,14 @@
 	"productName": "PPM",
 	"version": "0.1.0",
 	"description": "A package manager for package managers",
-	"license": "MIT",
+	"license": "SEE LICENCE IN LICENCE",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Charlie-Sumorok/Visual_Web_Electron"
+		"url": "https://github.com/Charlie-Sumorok/PMM"
 	},
-	"homepage": "https://github.com/Charlie-Sumorok/Visual_Web#readme",
+	"homepage": "https://github.com/Charlie-Sumorok/PMM#readme",
 	"bugs": {
-		"url": "https://github.com/Charlie-Sumorok/Visual_Web_Electron/issues"
+		"url": "https://github.com/Charlie-Sumorok/PMM/issues"
 	},
 	"author": {
 		"name": "Charlie-Sumorok"
@@ -20,6 +20,9 @@
 		"postinstall": "electron-builder install-app-deps",
 		"lint": "xo",
 		"test": "npm run lint",
+		"dev:scripts": "tsc --watch",
+		"dev:styles": "",
+		"dev": "npm run dev:scripts && npm run dev:styles",
 		"test_app": "npm start & sleep 10",
 		"posttest_app": "killall node",
 		"start": "electron ./scripts/out/index.js",
