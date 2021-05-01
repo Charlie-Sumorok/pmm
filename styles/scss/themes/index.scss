@@ -7,7 +7,7 @@ $themes: ('one-dark', 'one-light');
 	.#{$theme} {
 		@each $type, $colors in one-dark.$colors {
 			@each $name, $color in $colors {
-				--one-dark#{$type}-#{$name}: #{$color};
+				--one-dark-#{$type}-#{$name}: #{$color};
 			}
 		}
 	}
