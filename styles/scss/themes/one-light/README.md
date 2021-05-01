@@ -5,4 +5,4 @@ Based off of Atom's One Dark [UI][one-light-ui] and [syntax][one-light-syntax] t
 [one-light-syntax]: https://github.com/atom/atom/tree/master/packages/one-light-syntax
 <!-- ## Screenshots -->
 
-[Author](https://github.com/Charlie-Sumorok)
+Written by [Charlie-Sumorok](https://github.com/Charlie-Sumorok)
