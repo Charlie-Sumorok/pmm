@@ -1,8 +1,9 @@
 @use 'main';
+@use 'mixins';
 
 .nav {
 	display: grid;
-	background-color: var(--background-color);
+	background-color: var(--ui-background-color);
 	gap: 1rem;
 	margin: 1rem;
 	grid-template-columns: repeat(auto-fit, minmax(var(--min-width), 1fr));
@@ -12,19 +13,6 @@
 	align-items: center;
 
 	&-item {
-		background: var(--button-background);
-		border-radius: 5px;
-
-		&:hover {
-			background: var(--button-hover);
-		}
-
-		&:active {
-			background: var(--button-pressed);
-		}
-
-		&:focus {
-			outline: 0;
-		}
+		@include mixins.button(5px);
 	}
 }

@@ -1,6 +1,7 @@
 @use 'main';
+@use 'mixins';
 
-#preferenceSections {
+.preferenceSections {
 	display: grid;
 	background-color: var(--background-color);
 	gap: 1rem;
@@ -13,18 +14,5 @@
 }
 
 .preferenceSection {
-	background: var(--button-background);
-	border-radius: 5px;
-
-	&:hover {
-		background: var(--button-hover);
-	}
-
-	&:active {
-		background: var(--button-pressed);
-	}
-
-	&:focus {
-		outline: 0;
-	}
+	@include mixins.button(5px);
 }

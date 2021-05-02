@@ -1,0 +1,17 @@
+@mixin button($radius) {
+	background: var(--ui-button-background);
+	border-radius: $radius;
+
+	&:hover,
+	&:focus {
+		background: var(--ui-button-hover);
+	}
+
+	&:active {
+		background: var(--ui-button-pressed);
+	}
+
+	&:focus {
+		outline: 0;
+	}
+}
