@@ -6,10 +6,12 @@ $themes: (
 	one-light: one-light.$colors,
 );
 
-@each $theme-name, $colors in $themes {
+@each $theme-name, $theme in $themes {
 	.#{$theme-name} {
-		@each $name, $color in $colors {
-			--#{$name}: #{$color};
+		@each $category, $colors in $theme {
+			@each $name, $color in $colors {
+				--#{$name}: #{$color};
+			}
 		}
 	}
 }
