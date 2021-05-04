@@ -1,10 +1,19 @@
-@mixin button($radius) {
+/*
+======
+mixins
+======
+*/
+
+@mixin button($radius, $gap: 10px, $border: 10px) {
 	background: var(--ui-button-background);
 	border-radius: $radius;
+	color: var(--text-text-color);
+	transition: all 0.1s ease-in-out;
+	box-shadow: none;
 
-	&:hover,
-	&:focus {
+	&:hover {
 		background: var(--ui-button-hover);
+		box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
 	}
 
 	&:active {
@@ -12,6 +21,26 @@
 	}
 
 	&:focus {
-		outline: 0;
+		// outline: 10px solid var(--ui-button-background);
+		outline: none;
+		box-shadow: 0 0 0 $gap var(--ui-background-color),
+			0 0 0 #{$gap + $border} var(--ui-button-hover);
+	}
+}
+
+@mixin nested-list(
+	$selector: li,
+	$name: nested-list,
+	$prefix: '',
+	$suffix: '. ',
+	$seperator: '.'
+) {
+	counter-reset: $name;
+	#{$selector} {
+		list-style: none;
+		&::before {
+			content: counters($name, $seperator) $suffix;
+		}
+		counter-increment: $name;
 	}
 }
