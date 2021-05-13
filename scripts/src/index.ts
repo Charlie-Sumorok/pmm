@@ -2,7 +2,7 @@ import { BrowserWindow, Menu, app } from 'electron';
 
 import contextMenu from 'electron-context-menu';
 import { is } from 'electron-util';
-import { menu } from './menu_bar';
+import menu from './menu_bar';
 import path from 'node:path';
 import unhandled from 'electron-unhandled';
 
