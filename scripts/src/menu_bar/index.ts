@@ -1,5 +1,5 @@
 import { Menu } from 'electron';
-import { template } from './template';
+import { menuBarTemplate } from './template';
 
-export const menu = Menu.buildFromTemplate(template);
-export default menu;
+export const menuBarMenu = Menu.buildFromTemplate(menuBarTemplate);
+

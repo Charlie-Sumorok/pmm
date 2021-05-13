@@ -212,13 +212,13 @@ const otherTemplate: SubMenu = [
 	},
 ];
 
-const template = process.platform === 'darwin' ? macosTemplate : otherTemplate;
+const menuBarTemplate = process.platform === 'darwin' ? macosTemplate : otherTemplate;
 
 if (is.development) {
-	template.push({
+	menuBarTemplate.push({
 		label: 'Debug',
 		submenu: debugSubmenu,
 	});
 }
 
-export { template };
+export { menuBarTemplate  };

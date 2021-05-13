@@ -2,7 +2,7 @@ import { BrowserWindow, Menu, app } from 'electron';
 
 import contextMenu from 'electron-context-menu';
 import { is } from 'electron-util';
-import menu from './menu_bar';
+import { menuBarMenu } from './menu_bar';
 import path from 'node:path';
 import unhandled from 'electron-unhandled';
 
@@ -86,6 +86,6 @@ app.on('activate', async () => {
 
 (async () => {
 	await app.whenReady();
-	Menu.setApplicationMenu(menu);
+	Menu.setApplicationMenu(menuBarMenu);
 	mainWindow = await createMainWindow();
 })();
