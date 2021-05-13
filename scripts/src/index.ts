@@ -1,4 +1,4 @@
-import path from 'path';
+import path from 'node:path';
 import { app, BrowserWindow, Menu } from 'electron';
 /// import { autoUpdater } from 'electron-updater';
 import { is } from 'electron-util';
