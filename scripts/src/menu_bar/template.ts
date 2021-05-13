@@ -95,7 +95,7 @@ if (!is.macos) {
 			type: 'separator',
 		},
 		aboutMenuItem({
-			icon: path.join(__dirname, '../../icons', 'icon.png'),
+			icon: '../../icons/icon.png',
 			text: 'Created by {Your Name}',
 		})
 	);
@@ -212,7 +212,8 @@ const otherTemplate: SubMenu = [
 	},
 ];
 
-const menuBarTemplate = process.platform === 'darwin' ? macosTemplate : otherTemplate;
+const menuBarTemplate =
+	process.platform === 'darwin' ? macosTemplate : otherTemplate;
 
 if (is.development) {
 	menuBarTemplate.push({
@@ -221,4 +222,4 @@ if (is.development) {
 	});
 }
 
-export { menuBarTemplate  };
+export { menuBarTemplate };
