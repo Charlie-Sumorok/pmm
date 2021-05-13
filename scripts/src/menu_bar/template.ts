@@ -4,7 +4,7 @@ import {
 	gitHubIssueFromTemplate,
 	gitHubRepo_MenuBar_Item,
 } from './helper_functions/github';
-import { aboutMenuItem, appMenu, debugInfo, is } from 'electron-util';
+import { aboutMenuItem, appMenu, is } from 'electron-util';
 import { app, shell } from 'electron';
 
 import { SubMenu } from './helper_functions/menus';
