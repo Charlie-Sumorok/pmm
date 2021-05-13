@@ -8,11 +8,7 @@ class GitHubRepo {
 		const { owner, repo_name, url } = metadata;
 		this.owner = owner;
 		this.repo_name = repo_name;
-		if (url) {
-			this.url = url;
-		} else {
-			this.url = `https://github.com/${owner}/${repo_name}`;
-		}
+		this.url = url ?? `https://github.com/${owner}/${repo_name}`;
 	}
 }
 
