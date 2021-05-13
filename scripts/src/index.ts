@@ -1,10 +1,11 @@
-import path from 'node:path';
-import { app, BrowserWindow, Menu } from 'electron';
+import { BrowserWindow, Menu, app } from 'electron';
+
+import contextMenu from 'electron-context-menu';
 /// import { autoUpdater } from 'electron-updater';
 import { is } from 'electron-util';
 import { menu } from './menu_bar';
+import path from 'node:path';
 import unhandled from 'electron-unhandled';
-import contextMenu from 'electron-context-menu';
 
 unhandled();
 // X debug();
