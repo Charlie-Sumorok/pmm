@@ -4,14 +4,12 @@ import {
 	gitHubIssueFromTemplate,
 	gitHubRepo_MenuBar_Item,
 } from './helper_functions/github';
+import { aboutMenuItem, appMenu, debugInfo, is } from 'electron-util';
 import { app, shell } from 'electron';
 
 import { SubMenu } from './helper_functions/menus';
-import path from 'path';
 import { showPreferences } from './helper_functions';
 import { storage } from '../config';
-
-const { debugInfo, is, aboutMenuItem, appMenu } = require('electron-util');
 
 const main_repo: GitHubRepo = {
 	owner: 'Charlie-Sumorok',
