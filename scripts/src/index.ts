@@ -52,7 +52,7 @@ const createMainWindow = async () => {
 		mainWindow = undefined;
 	});
 
-	await win.loadFile(path.join(__dirname, '../../views/', 'index.html'));
+	await win.loadFile('../../views/index.html');
 
 	return win;
 };
