@@ -27,7 +27,7 @@ app.setAppUserModelId('com.company.AppName');
 // }
 
 // Prevent window from being garbage collected
-let mainWindow: BrowserWindow | undefined;
+let mainWindow: any;
 
 const createMainWindow = async () => {
 	const win = new BrowserWindow({
