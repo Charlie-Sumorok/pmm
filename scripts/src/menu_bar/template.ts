@@ -13,7 +13,6 @@ import { storage } from '../config';
 
 const { debugInfo, is, aboutMenuItem, appMenu } = require('electron-util');
 
-
 const main_repo: GitHubRepo = {
 	owner: 'Charlie-Sumorok',
 	repo_name: 'ppm',
