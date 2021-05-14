@@ -11,15 +11,8 @@ on:
 jobs:
   lint:
     name: Lint
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     timeout-minutes: 60
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - ubuntu-latest
-          - macos-latest
-          - windows-latest
 
     steps:
       - name: Setup Terminal
@@ -34,16 +27,8 @@ jobs:
   test:
     name: Test
     needs: lint
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     timeout-minutes: 60
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - ubuntu-latest
-          - macos-latest
-          - windows-latest
-      max-parallel: 2
 
     steps:
       - name: Setup Terminal
@@ -52,9 +37,6 @@ jobs:
         uses: actions/setup-node@v2
       - name: Setup node_modules/
         run: npm add
-      - name: Setup TypeScript
-        if: ${{ matrix.os == 'macos-latest' }}
-        run: brew install typescript
       - name: Complie TypeScript
         run: tsc
       - name: Test
