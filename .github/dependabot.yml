@@ -11,3 +11,10 @@ updates:
       interval: "daily"
       time: "15:00"
       timezone: "America/New_York"
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "15:00"
+      timezone: "America/New_York"
+
