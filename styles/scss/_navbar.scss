@@ -4,7 +4,10 @@ navbar
 ======
 */
 
+/* @use 'main'; */
 @use 'main';
+
+/* @use 'mixins'; */
 @use 'mixins';
 
 .nav {

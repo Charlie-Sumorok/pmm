@@ -4,9 +4,15 @@ themes/one-dark
 ===============
 */
 
+/* @use 'themes/one-dark/ui'; */
+/* @use 'one-dark/ui'; */
+/* @use 'ui'; */
 @use 'ui';
-@use 'text';
 
+/* @use 'themes/one-dark/text'; */
+/* @use 'one-dark/text'; */
+/* @use 'text'; */
+@use 'text';
 $colors: (
 	ui: ui.$ui,
 	text: text.$text,

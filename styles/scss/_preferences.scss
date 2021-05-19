@@ -4,7 +4,10 @@ preferences
 ===========
 */
 
+/* @use 'main'; */
 @use 'main';
+
+/* @use 'mixins'; */
 @use 'mixins';
 
 .preferences {

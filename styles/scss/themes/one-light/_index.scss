@@ -4,7 +4,14 @@ themes/one-light
 ================
 */
 
+/* @use 'themes/one-light/ui'; */
+/* @use 'one-light/ui'; */
+/* @use 'ui'; */
 @use 'ui';
+
+/* @use 'themes/one-light/text'; */
+/* @use 'one-light/text'; */
+/* @use 'text'; */
 @use 'text';
 
 $colors: (

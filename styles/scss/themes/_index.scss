@@ -4,20 +4,44 @@ themes
 ======
 */
 
+/* @use 'themes/one-dark'; */
+/* @use 'one-dark'; */
 @use 'one-dark';
+
+/* @use 'themes/one-light'; */
+/* @use 'one-light'; */
 @use 'one-light';
+
+$auto-themes: (
+	light: one-light.$colors,
+	dark: one-dark.$colors,
+);
 
 $themes: (
 	one-dark: one-dark.$colors,
 	one-light: one-light.$colors,
+	not-dark: one-light.$colors,
+	not-light: one-dark.$colors,
 );
+
+@mixin theme($theme) {
+	@each $category, $colors in $theme {
+		@each $name, $color in $colors {
+			--#{$category}--#{$name}: #{$color};
+		}
+	}
+}
 
 @each $theme-name, $theme in $themes {
 	.#{$theme-name} {
-		@each $category, $colors in $theme {
-			@each $name, $color in $colors {
-				--#{$category}-#{$name}: #{$color};
-			}
+		@include theme($theme);
+	}
+}
+
+@each $type, $theme in $auto-themes {
+	@media (prefers-color-scheme: $type) {
+		.body {
+			@include theme($theme);
 		}
 	}
 }
