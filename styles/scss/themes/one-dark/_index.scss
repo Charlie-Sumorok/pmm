@@ -13,6 +13,7 @@ themes/one-dark
 /* @use 'one-dark/text'; */
 /* @use 'text'; */
 @use 'text';
+
 $colors: (
 	ui: ui.$ui,
 	text: text.$text,
