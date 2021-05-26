@@ -140,7 +140,7 @@ const debugSubmenu: SubMenu = [
 	{
 		label: 'Delete App Data',
 		click() {
-			shell.trashItem(app.getPath('userData'));
+			await shell.trashItem(app.getPath('userData'));
 			app.relaunch();
 			app.quit();
 		}
