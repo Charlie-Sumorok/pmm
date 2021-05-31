@@ -6,65 +6,56 @@
 	"type": "object",
 	"additionalProperties": false,
 	"properties": {
-		"anyOf": [
-			{
-				"description": "Schema",
-				"type": "string",
-				"pattern": "^\\$schema$"
-			},
-			{
-				"patternProperties": {
-					"^[a-zA-Z]+$": {
-						"type": "object",
+		"patternProperties": {
+			"^[a-zA-Z]+$": {
+				"type": "object",
+				"properties": {
+					"installed": {
+						"description": "Whether the package manager is installed by default",
+						"type": "boolean",
+						"default": true
+					},
+					"enabled": {
+						"description": "Whether the package manager is enabled for searching by default",
+						"type": "boolean",
+						"default": true
+					},
+					"commands": {
 						"properties": {
-							"installed": {
-								"description": "Whether the package manager is installed by default",
-								"type": "boolean",
-								"default": true
-							},
-							"enabled": {
-								"description": "Whether the package manager is enabled for searching by default",
-								"type": "boolean",
-								"default": true
-							},
-							"commands": {
-								"properties": {
-									"install": {
-										"description": "installation method",
-										"type": "object",
-										"patternProperties": {
-											"^[a-zA-Z]+$": {
-												"type": "string"
-											}
-										}
-									},
-									"upgrade": {
-										"description": "Command to upgrade package manager",
+							"install": {
+								"description": "installation method",
+								"type": "object",
+								"patternProperties": {
+									"^[a-zA-Z]+$": {
 										"type": "string"
 									}
-								},
-								"required": ["install", "upgrade"]
-							},
-							"urls": {
-								"description": "The urls for the package manager",
-								"type": "object",
-								"properties": {
-									"standard": {
-										"description": "The Standard url",
-										"type": "string",
-										"pattern": "^[a-zA-Z]+://([a-zA-Z]+/?)$"
-									},
-									"docs": {
-										"description": "The Documentation url",
-										"type": "string",
-										"pattern": "^[a-zA-Z]+://([a-zA-Z]+/?)$"
-									}
 								}
+							},
+							"upgrade": {
+								"description": "Command to upgrade package manager",
+								"type": "string"
+							}
+						},
+						"required": ["install", "upgrade"]
+					},
+					"urls": {
+						"description": "The urls for the package manager",
+						"type": "object",
+						"properties": {
+							"standard": {
+								"description": "The Standard url",
+								"type": "string",
+								"pattern": "^[a-zA-Z]+://([a-zA-Z]+/?)$"
+							},
+							"docs": {
+								"description": "The Documentation url",
+								"type": "string",
+								"pattern": "^[a-zA-Z]+://([a-zA-Z]+/?)$"
 							}
 						}
 					}
 				}
 			}
-		]
+		}
 	}
 }
