@@ -10,7 +10,7 @@
 			"type": "string",
 			"description": "schema"
 		},
-		"[a-zA-Z]+": {
+		"^[a-zA-Z]+$": {
 			"type": "object",
 			"properties": {
 				"installed": {
@@ -29,7 +29,7 @@
 							"description": "installation method",
 							"type": "object",
 							"patternProperties": {
-								"[a-zA-Z]+": {
+								"^[a-zA-Z]+$": {
 									"type": "string"
 								}
 							}
