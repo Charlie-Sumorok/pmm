@@ -4,7 +4,7 @@
 	"title": "Package Manager",
 	"description": "A package manager",
 	"type": "object",
-	"additionalProperties": true,
+	"additionalProperties": false,
 	"patternProperties": {
 		"^[a-zA-Z]+$": {
 			"type": "object",
@@ -54,7 +54,12 @@
 						}
 					}
 				}
-			}
+			},
+			"description": "Package manager"
+		},
+		"\\$schema": {
+			"description": "Schema",
+			"type": "string"
 		}
 	}
 }
