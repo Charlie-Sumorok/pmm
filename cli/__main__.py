@@ -15,8 +15,11 @@ main_parser = argparse.ArgumentParser(
 	description = 'A package manager for package managers',
 )
 
+# main_parser.add_argument('--help', action=)
 subparsers = main_parser.add_subparsers()
 subparsers.add_parser('completion')
+
+print(main_parser.parse_args())
 
 options = {
 	"update": "",
