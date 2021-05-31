@@ -1,0 +1,71 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema",
+	"apm": {
+		"installed": false,
+		"enabled": {
+			"default": true,
+			"current": true
+		},
+		"commands": {
+			"install": {
+				"brew": "brew install atom"
+			},
+			"upgrade": "apm update"
+		},
+		"urls": {
+			"standard": "https://atom.io/",
+			"docs": "https://flight-manual.atom.io/"
+		}
+	},
+	"npm": {
+		"installed": false,
+		"enabled": {
+			"default": true,
+			"current": true
+		},
+		"commands": {
+			"install": {
+				"brew": "brew install nvm node"
+			},
+			"upgrade": "nvm install --lts"
+		},
+		"urls": {
+			"standard": "https://www.npmjs.com/",
+			"docs": "https://docs.npmjs.com"
+		}
+	},
+	"brew": {
+		"installed": false,
+		"enabled": {
+			"default": true,
+			"current": true
+		},
+		"commands": {
+			"install": {
+				"shell": "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+			},
+			"upgrade": "brew update"
+		},
+		"urls": {
+			"standard": "https://brew.sh",
+			"docs": "https://docs.brew.sh/"
+		}
+	},
+	"pip": {
+		"installed": false,
+		"enabled": {
+			"default": true,
+			"current": true
+		},
+		"commands": {
+			"install": {
+				"brew": "brew install python"
+			},
+			"upgrade": "pip install --upgrade pip"
+		},
+		"urls": {
+			"standard": "https://pypi.org/",
+			"docs": "https://docs.python.org/"
+		}
+	}
+}
