@@ -17,7 +17,7 @@ jobs:
       COMMANDS: commands -h
 
     steps:
-      - name: Setup Terminal
+      - name: Checkout Repo
         uses: actions/checkout@v2
       - name: Setup Python
         uses: actions/setup-python@v2
