@@ -6,7 +6,7 @@
 	"type": "object",
 	"additionalProperties": false,
 	"properties": {
-		"oneOf": [
+		"anyOf": [
 			{
 				"description": "Schema",
 				"type": "string",
