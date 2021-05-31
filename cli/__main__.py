@@ -11,15 +11,14 @@ def parse_extra(parser: argparse.ArgumentParser, namespace: argparse.Namespace):
 		namespaces.append(arg)
 	return namespaces
 
-main_parser = argparse.ArgumentParser(
+parser = argparse.ArgumentParser(
 	description = 'A package manager for package managers',
 )
 
-# main_parser.add_argument('--help', action=)
-subparsers = main_parser.add_subparsers()
-subparsers.add_parser('completion')
+# parser.add_argument('--help', action=)
 
-print(main_parser.parse_args())
+
+print(parser.parse_args())
 
 options = {
 	"update": "",
