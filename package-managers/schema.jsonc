@@ -47,11 +47,13 @@
 					"properties": {
 						"standard": {
 							"description": "The Standard url",
-							"type": "string"
+							"type": "string",
+							"pattern": "^[a-zA-Z]+://([a-zA-Z]+/?)$"
 						},
 						"docs": {
 							"description": "The Documentation url",
-							"type": "string"
+							"type": "string",
+							"pattern": "^[a-zA-Z]+://([a-zA-Z]+/?)$"
 						}
 					}
 				}
