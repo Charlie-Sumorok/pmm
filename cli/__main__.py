@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 import argparse, colorama
-from colorama.ansi import Fore
+
 colorama.init(autoreset = True)
 
 parser = argparse.ArgumentParser(
