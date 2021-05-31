@@ -30,10 +30,6 @@ jobs:
           then
             pip install -r requirements.txt;
           fi
-        working-directory: cli
-      - name: Lint with pyflakes
-        run: pyflakes .
-        working-directory: cli
       - name: Test Commands
         run: |
           alias pmm='python3 cli'
