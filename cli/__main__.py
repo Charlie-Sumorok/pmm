@@ -1,12 +1,13 @@
 #! /usr/bin/env python3
 
 import argparse, colorama
+from sys import argv as args
 
 colorama.init(autoreset = True)
 
-parser = argparse.ArgumentParser(
+'''parser = argparse.ArgumentParser(
 	description = 'A package manager for package managers',
-)
+)'''
 
 def snippet(
 	string,
@@ -21,11 +22,12 @@ def snippet(
 	background + \
 	foreground
 
-parser.add_argument(
+'''parser.add_argument(
 	'commands',
 	help = 'list all available commands',
 	type=lambda x:x
-)
+)'''
+
 command_info = {
 	"alias": f"create command aliases (same syntax as {snippet('alias', foreground=colorama.Fore.CYAN)})", #`alias key=value`
 	"update": "update all package managers",
@@ -56,9 +58,12 @@ command_info = {
 	# "show": "show package manager on PMM website".
 }
 
-parsed_args = parser.parse_args()
-if 'commands' in parsed_args:
-	print('\n'.join([ f'{colorama.Style.BRIGHT}{a}{colorama.Style.RESET_ALL}: {colorama.Fore.CYAN}{b}{colorama.Fore.RESET}' for a, b in command_info.items()]))
+#parsed_args = parser.parse_args()
+if 'commands' == args[1]:
+	if (len(args) > 2) and (args[2] in '-v', '--verbose'):
+		print(' '.join(command_info.keys()))
+	else:
+		print('\n'.join([ f'{colorama.Style.BRIGHT}{a}{colorama.Style.RESET_ALL}: {colorama.Fore.CYAN}{b}{colorama.Fore.RESET}' for a, b in command_info.items()]))
 
 
 options = {
