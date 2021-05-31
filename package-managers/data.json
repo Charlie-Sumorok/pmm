@@ -2,10 +2,7 @@
 	"$schema": "https://raw.githubusercontent.com/Charlie-Sumorok/PMM/develop/package-managers/schema.jsonc",
 	"apm": {
 		"installed": false,
-		"enabled": {
-			"default": true,
-			"current": true
-		},
+		"enabled": true,
 		"commands": {
 			"install": {
 				"brew": "brew install atom"
@@ -19,10 +16,7 @@
 	},
 	"npm": {
 		"installed": false,
-		"enabled": {
-			"default": true,
-			"current": true
-		},
+		"enabled": true,
 		"commands": {
 			"install": {
 				"brew": "brew install nvm node"
@@ -36,10 +30,7 @@
 	},
 	"brew": {
 		"installed": false,
-		"enabled": {
-			"default": true,
-			"current": true
-		},
+		"enabled": true,
 		"commands": {
 			"install": {
 				"shell": "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
@@ -53,10 +44,7 @@
 	},
 	"pip": {
 		"installed": false,
-		"enabled": {
-			"default": true,
-			"current": true
-		},
+		"enabled": true,
 		"commands": {
 			"install": {
 				"brew": "brew install python"
