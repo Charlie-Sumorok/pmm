@@ -50,7 +50,8 @@ parser.add_argument(
 	],
 	type = get_completion,
 	default = os.getenv('SHELL'),
-	help = 'specify the shell'
+	help = 'specify the shell',
 )
 
 parsed_args = parser.parse_args()
+print(parsed_args.shell)
