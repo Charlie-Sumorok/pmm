@@ -1,5 +1,5 @@
 {
-	"$schema": "./schema.jsonc",
+	"$schema": "https://raw.githubusercontent.com/Charlie-Sumorok/PMM/develop/package-managers/schema.jsonc",
 	"apm": {
 		"installed": false,
 		"enabled": {
