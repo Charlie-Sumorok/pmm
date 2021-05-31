@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
-      HAS_DEPENDENCIES: false
+      COMMANDS: commands -h
 
     steps:
       - name: Setup Terminal
@@ -26,7 +26,7 @@ jobs:
           python -m pip install --upgrade pip;
           pip install flake8 pytest
 
-          if [[ -f requirements.txt && $HAS_DEPENDENCIES ]]
+          if [[ -f requirements.txt ]]
           then
             pip install -r requirements.txt;
           fi
@@ -52,3 +52,9 @@ jobs:
       - name: Lint with pyflakes
         run: pyflakes .
         working-directory: cli
+      - name: Test Commands
+        run: |
+          alias pmm='python3 cli'
+          for command in $COMMANDS
+          do
+            pmm $command
