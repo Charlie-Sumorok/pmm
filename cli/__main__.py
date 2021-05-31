@@ -1,24 +1,65 @@
 #! /usr/bin/env python3
 
-import argparse
-
-def parse_extra(parser: argparse.ArgumentParser, namespace: argparse.Namespace):
-	namespaces = []
-	extra = namespace.extra
-	while extra:
-		arg = parser.parse_args(extra)
-		extra = arg.extra
-		namespaces.append(arg)
-	return namespaces
+import argparse, colorama
+from colorama.ansi import Fore
+colorama.init(autoreset = True)
 
 parser = argparse.ArgumentParser(
 	description = 'A package manager for package managers',
 )
 
-# parser.add_argument('--help', action=)
+def snippet(
+	string,
+	style = colorama.Style.RESET_ALL,
+	foreground = colorama.Fore.RESET,
+	background = colorama.Back.RESET
+):
+	return colorama.Back.LIGHTBLACK_EX + \
+		colorama.Style.BRIGHT + \
+			string + \
+		style + \
+	background + \
+	foreground
 
+parser.add_argument(
+	'commands',
+	help = 'list all available commands',
+	type=lambda x:x
+)
+command_info = {
+	"alias": f"create command aliases (same syntax as {snippet('alias', foreground=colorama.Fore.CYAN)})", #`alias key=value`
+	"update": "update all package managers",
+	"upgrade": "update specific package managers",
+	"home": "Go to the homepage of PMM or a specified package manager",
+	"info": "Get info about PMM or a specified package manager",
+	"init": "Initialize a pull request to add a new package managers",
+	"list": "list package managers",
+	"ls": "alias of list",
+	"dev": "alias of develop",
+	"edit": f"edit pull request made with {snippet('pmm init')}",
+	"install": "install a package manager",
+	"i": "alias of install",
+	"uninstall": "uninstall a package manager",
+	"un": "alias of uninstall",
+	"status": "check status of pull requests",
+	"docs": "Go to docs for PMM or a specified package manager",
+	"login": "log in to GitHub to create the pull request",
+	"logout": "log out of GitHub",
+	"search": "search for available package managers or packages", # --manager <Package Manager> | -m <Package Manager> | <Package Name>
+	"enable": "enable a package manager for searching",
+	"disable": "disable a package manager for searching",
+	"repo": "Go to the repo of PMM or a specified package manager",
+	"config": "view or modifiy settings",
+	"commands": "list all commands",
+	"completion": "get shell completion",
+	"cmds": "alias of commands",
+	# "show": "show package manager on PMM website".
+}
 
-print(parser.parse_args())
+parsed_args = parser.parse_args()
+if 'commands' in parsed_args:
+	print('\n'.join([ f'{colorama.Style.BRIGHT}{a}{colorama.Style.RESET_ALL}: {colorama.Fore.CYAN}{b}{colorama.Fore.RESET}' for a, b in command_info.items()]))
+
 
 options = {
 	"update": "",
@@ -29,8 +70,6 @@ options = {
 	"h": "-> help",
 	"list": "",
 	"ls": "-> list",
-	"dev": "-> develop",
-	"develop": "{package_manager_name}",
 	"install": {
 		"[{package_manager_name}...]",
 		"{package_manager_name}@<package_manager_version>",
