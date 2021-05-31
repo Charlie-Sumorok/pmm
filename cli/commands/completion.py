@@ -37,7 +37,7 @@ def get_completion(shell: Union['bash', 'zsh']):
 	if shell == 'zsh':
 		return f'compctl -K "{completion}" pmm'
 
-parser = argparse.ArgumentParser(
+'''parser = argparse.ArgumentParser(
 	description = 'get shell completion for pmm'
 )
 
@@ -54,4 +54,4 @@ parser.add_argument(
 )
 
 parsed_args = parser.parse_args()
-print(parsed_args.shell)
+print(parsed_args.shell)'''

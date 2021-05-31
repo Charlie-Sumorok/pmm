@@ -1,7 +1,8 @@
 #! /usr/bin/env python3
 
 import argparse, colorama
-from sys import argv as args
+from commands import commands
+import sys
 
 colorama.init(autoreset = True)
 
@@ -9,18 +10,7 @@ colorama.init(autoreset = True)
 	description = 'A package manager for package managers',
 )'''
 
-def snippet(
-	string,
-	style = colorama.Style.RESET_ALL,
-	foreground = colorama.Fore.RESET,
-	background = colorama.Back.RESET
-):
-	return colorama.Back.LIGHTBLACK_EX + \
-		colorama.Style.BRIGHT + \
-			string + \
-		style + \
-	background + \
-	foreground
+
 
 '''parser.add_argument(
 	'commands',
@@ -28,42 +18,13 @@ def snippet(
 	type=lambda x:x
 )'''
 
-command_info = {
-	"alias": f"create command aliases (same syntax as {snippet('alias', foreground=colorama.Fore.CYAN)})", #`alias key=value`
-	"update": "update all package managers",
-	"upgrade": "update specific package managers",
-	"home": "Go to the homepage of PMM or a specified package manager",
-	"info": "Get info about PMM or a specified package manager",
-	"init": "Initialize a pull request to add a new package managers",
-	"list": "list package managers",
-	"ls": "alias of list",
-	"dev": "alias of develop",
-	"edit": f"edit pull request made with {snippet('pmm init')}",
-	"install": "install a package manager",
-	"i": "alias of install",
-	"uninstall": "uninstall a package manager",
-	"un": "alias of uninstall",
-	"status": "check status of pull requests",
-	"docs": "Go to docs for PMM or a specified package manager",
-	"login": "log in to GitHub to create the pull request",
-	"logout": "log out of GitHub",
-	"search": "search for available package managers or packages", # --manager <Package Manager> | -m <Package Manager> | <Package Name>
-	"enable": "enable a package manager for searching",
-	"disable": "disable a package manager for searching",
-	"repo": "Go to the repo of PMM or a specified package manager",
-	"config": "view or modifiy settings",
-	"commands": "list all commands",
-	"completion": "get shell completion",
-	"cmds": "alias of commands",
-	# "show": "show package manager on PMM website".
-}
+def parse_args(args):
+	if 'commands' == args[0]:
+		commands.parse_args(args[1:])
+
+parse_args(sys.argv[1:])
 
 #parsed_args = parser.parse_args()
-if 'commands' == args[1]:
-	if (len(args) > 2) and (args[2] in '-v', '--verbose'):
-		print(' '.join(command_info.keys()))
-	else:
-		print('\n'.join([ f'{colorama.Style.BRIGHT}{a}{colorama.Style.RESET_ALL}: {colorama.Fore.CYAN}{b}{colorama.Fore.RESET}' for a, b in command_info.items()]))
 
 
 options = {
