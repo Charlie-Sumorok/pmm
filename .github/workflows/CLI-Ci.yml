@@ -31,5 +31,4 @@ jobs:
       - name: Test Commands
         run: |
           alias pmm='python3 cli'
-          pmm -h
           pmm commands
