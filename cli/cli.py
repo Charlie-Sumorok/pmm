@@ -1,10 +1,20 @@
 #! /usr/bin/env python3
 
-import sys
+import argparse
 
-__all__ = [
-	'cli'
-]
+def parse_extra(parser: argparse.ArgumentParser, namespace: argparse.Namespace):
+	namespaces = []
+	extra = namespace.extra
+	while extra:
+		arg = parser.parse_args(extra)
+		extra = arg.extra
+		namespaces.append(arg)
+	return namespaces
+
+main_parser = argparse.ArgumentParser(
+	description = 'A package manager for package managers',
+)
+
 
 options = {
 	"update": "",
@@ -50,25 +60,4 @@ options = {
 
 error = NotImplementedError("That command has not been implemented yet")
 
-def cli(*arguments):
-	if len(sys.argv) > 1:
-		subcommand = sys.argv[1]
-		if subcommand in list(options.keys()):
-			with open(f'commands/{subcommand}.py', "r") as command_file:
-				exec(f'{command_file.read()}')
-		else:
-			raise error
-	elif len(arguments) >= 1:
-		args = [sys.argv[0], *arguments]
-		subcommand = args[1]
-		if f'{subcommand}' in [option for option in options.keys()]:
-			command_file = open(f'./commands/{subcommand}.py', "r");
-			contents = command_file.read()
-			exec(f'{contents}')
-			command_file.close()
-		else:
-			raise error
-	else:
-		cli('help')
-if __name__ == '__main__':
-	cli()
+
