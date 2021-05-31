@@ -58,3 +58,4 @@ jobs:
           for command in $COMMANDS
           do
             pmm $command
+          done
