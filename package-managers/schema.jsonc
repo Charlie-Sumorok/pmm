@@ -4,11 +4,12 @@
 	"title": "Package Manager",
 	"description": "A package manager",
 	"type": "object",
-	"additionalProperties": false,
+	"additionalProperties": true,
 	"patternProperties": {
 		"^[a-zA-Z]+$": {
 			"type": "object",
 			"properties": {
+				"additionalProperties": false,
 				"installed": {
 					"description": "Whether the package manager is installed by default",
 					"type": "boolean",
