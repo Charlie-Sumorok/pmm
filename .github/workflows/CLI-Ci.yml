@@ -13,8 +13,6 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     timeout-minutes: 60
-    env:
-      COMMANDS: commands -h
 
     steps:
       - name: Checkout Repo
@@ -33,7 +31,7 @@ jobs:
       - name: Test Commands
         run: |
           alias pmm='python3 cli'
-          for command in $COMMANDS
+          for command in commands -h
           do
             pmm $command
           done
