@@ -15,7 +15,7 @@ jobs:
     timeout-minutes: 60
 
     steps:
-      - name: Setup Terminal
+      - name: Checkout Repo
         uses: actions/checkout@v2
       - name: Setup Node.js
         uses: actions/setup-node@v2
@@ -42,5 +42,4 @@ jobs:
       - name: Test
         run: npm run test
       - name: Compile SCSS
-        run: npx sass scss:css
-        working-directory: styles
+        run: npx sass styles/scss:styles/css

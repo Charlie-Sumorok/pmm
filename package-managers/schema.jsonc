@@ -1,0 +1,65 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	// "$id": "https://example.com/product.schema.json",
+	"title": "Package Manager",
+	"description": "A package manager",
+	"type": "object",
+	"additionalProperties": false,
+	"patternProperties": {
+		"^[a-zA-Z]+$": {
+			"type": "object",
+			"properties": {
+				"additionalProperties": false,
+				"installed": {
+					"description": "Whether the package manager is installed by default",
+					"type": "boolean",
+					"default": true
+				},
+				"enabled": {
+					"description": "Whether the package manager is enabled for searching by default",
+					"type": "boolean",
+					"default": true
+				},
+				"commands": {
+					"properties": {
+						"install": {
+							"description": "installation method",
+							"type": "object",
+							"patternProperties": {
+								"^[a-zA-Z]+$": {
+									"type": "string"
+								}
+							}
+						},
+						"upgrade": {
+							"description": "Command to upgrade package manager",
+							"type": "string"
+						}
+					},
+					"required": ["install", "upgrade"]
+				},
+				"urls": {
+					"description": "The urls for the package manager",
+					"type": "object",
+					"properties": {
+						"standard": {
+							"description": "The Standard url",
+							"type": "string",
+							"pattern": "^[a-zA-Z]+://([-a-zA-Z0-9@:%._\\+~#=]+/?)$"
+						},
+						"docs": {
+							"description": "The Documentation url",
+							"type": "string",
+							"pattern": "^[a-zA-Z]+://([-a-zA-Z0-9@:%._\\+~#=]+/?)$"
+						}
+					}
+				}
+			},
+			"description": "Package manager"
+		},
+		"\\$schema": {
+			"description": "Schema",
+			"type": "string"
+		}
+	}
+}

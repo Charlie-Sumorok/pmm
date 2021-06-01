@@ -1,4 +1,38 @@
-subcommands = {
+#! /usr/bin/env python3
+'Entry point to PMM'
+
+import sys
+import colorama
+from commands import commands
+
+colorama.init(autoreset = True)
+
+#parser = argparse.ArgumentParser(
+#	description = 'A package manager for package managers',
+#)
+
+
+
+# parser.add_argument(
+# 	'commands',
+# 	help = 'list all available commands',
+# 	type=lambda x:x
+# )
+
+def parse_args(args):
+	'parse arguments'
+	command, *subcommand_args = args
+	if command in ['commands', 'cmds']:
+		commands.parse_args(subcommand_args)
+	else:
+		raise NotImplementedError(f'The command, "{command}", has not been implemented yet')
+
+parse_args(sys.argv[1:])
+
+#parsed_args = parser.parse_args()
+
+
+options = {
 	"update": "",
 	"upgrade": "{package_manager_name}",
 	"home": "{package_manager_name}",
@@ -7,14 +41,14 @@ subcommands = {
 	"h": "-> help",
 	"list": "",
 	"ls": "-> list",
-	"dev": "-> develop",
-	"develop": "{package_manager_name}",
 	"install": {
 		"[{package_manager_name}...]",
 		"{package_manager_name}@<package_manager_version>",
 		"{git_remote}",
 		"{github_username}/{github_project}",
-		"--package_managers-file my-package_managers.txt"
+		"--package_managers-file my-package_managers.txt",
+		"--file my-package_managers.txt",
+		"-f my-package_managers.txt",
 	},
 	"i": "-> install",
 	"uninstall": "[{package_manager_name}...]",
@@ -34,15 +68,6 @@ subcommands = {
 	"repo": "{package_manager_name}",  # show package manager repo
 	"config": "",  # show or edit settings
 	"commands": "",  # list commands
-	"completion": ["get | set", "{shell_name}" "path (if args[1] == set)"], # ( prints| writes) completion script
+	"completion": "--shell <SHELL>", # (prints | writes) completion script
 	"cmds": "-> commands",
 }
-
-result = [
-	f'{subcommand}\n' for subcommand in subcommands.keys()
-][:-1] + [
-	[
-		subcommand for subcommand in subcommands.keys()
-	][-1]
-]
-print(*result, sep = '')
