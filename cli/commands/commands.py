@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 'list all commands'
 
 import sys

@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 'get help for a command'
 
 import re

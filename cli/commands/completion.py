@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 'get shell completion'
 import sys
 

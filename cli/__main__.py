@@ -1,4 +1,5 @@
 #! /usr/bin/env python3
+
 'Entry point to PMM'
 
 import sys
@@ -30,6 +31,12 @@ def parse_args(args):
 			commands.commands.parse_args(subcommand_args)
 		elif command in ['home']:
 			commands.home.parse_args(subcommand_args)
+		elif command in ['install', 'i']:
+			commands.install.parse_args(subcommand_args)
+		elif command in ['uninstall', 'un']:
+			commands.uninstall.parse_args(subcommand_args)
+		elif command in ['list', 'ls']:
+			commands.list.parse_args(subcommand_args)
 		else:
 			raise NotImplementedError(f'The command, "{command}", has not been implemented yet')
 
