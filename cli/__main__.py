@@ -1,26 +1,28 @@
 #! /usr/bin/env python3
+'Entry point to PMM'
 
-import argparse, colorama
-from commands import commands
 import sys
+import colorama
+from commands import commands
 
 colorama.init(autoreset = True)
 
-'''parser = argparse.ArgumentParser(
-	description = 'A package manager for package managers',
-)'''
+#parser = argparse.ArgumentParser(
+#	description = 'A package manager for package managers',
+#)
 
 
 
-'''parser.add_argument(
-	'commands',
-	help = 'list all available commands',
-	type=lambda x:x
-)'''
+# parser.add_argument(
+# 	'commands',
+# 	help = 'list all available commands',
+# 	type=lambda x:x
+# )
 
 def parse_args(args):
+	'parse arguments'
 	command, *subcommand_args = args
-	if 'commands' == command:
+	if command == 'commands':
 		commands.parse_args(subcommand_args)
 	else:
 		raise NotImplementedError(f'The command, "{command}", has not been implemented yet')
@@ -66,6 +68,6 @@ options = {
 	"repo": "{package_manager_name}",  # show package manager repo
 	"config": "",  # show or edit settings
 	"commands": "",  # list commands
-	"completion": ["get | set", "{shell_name}" "path (if args[1] == set)"], # ( prints| writes) completion script
+	"completion": "--shell <SHELL>", # (prints | writes) completion script
 	"cmds": "-> commands",
 }
