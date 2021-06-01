@@ -44,11 +44,17 @@ commands_info = {
 	# "show": "show package manager on PMM website".
 }
 
-def parse_args(args):
-	if (len(args) > 0) and (args[0] in ['-v', '--verbose']):
+def parse_args(args: list[str]):
+	verbose_flags = [index for index, arg in enumerate(args) if arg in ['-v', '--verbose']]
+	no_verbose_flags = [index for index, arg in enumerate(args) if arg in ['--no-verbose']]
+	max_verbose_flags = max(verbose_flags) if len(verbose_flags) != 0 else -1
+	max_no_verbose_flags = max(no_verbose_flags) if len(no_verbose_flags) != 0 else -1
+	if (len(args) > 0) and max_verbose_flags > max_no_verbose_flags:
 		print(' '.join(commands_info.keys()))
-	else:
+	elif (len(args) == 0) or max_verbose_flags < max_no_verbose_flags:
 		print('\n'.join([
 			f'{colorama.Style.BRIGHT}{command_name}{colorama.Style.RESET_ALL}: {colorama.Fore.CYAN}{command_info}{colorama.Fore.RESET}'
 			for command_name, command_info in commands_info.items()
 		]))
+	else:
+		raise ValueError('The specified flags are not allowed')
