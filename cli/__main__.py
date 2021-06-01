@@ -19,8 +19,11 @@ colorama.init(autoreset = True)
 )'''
 
 def parse_args(args):
-	if 'commands' == args[0]:
-		commands.parse_args(args[1:])
+	command, *subcommand_args = args
+	if 'commands' == command:
+		commands.parse_args(subcommand_args)
+	else:
+		raise NotImplementedError(f'The command, "{command}", has not been implemented yet')
 
 parse_args(sys.argv[1:])
 
@@ -66,7 +69,3 @@ options = {
 	"completion": ["get | set", "{shell_name}" "path (if args[1] == set)"], # ( prints| writes) completion script
 	"cmds": "-> commands",
 }
-
-error = NotImplementedError("That command has not been implemented yet")
-
-

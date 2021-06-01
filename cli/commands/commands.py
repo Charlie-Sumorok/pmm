@@ -1,4 +1,5 @@
-import colorama
+import colorama, sys
+
 colorama.init(autoreset = True)
 
 def snippet(
@@ -45,16 +46,23 @@ commands_info = {
 }
 
 def parse_args(args: list[str]):
-	verbose_flags = [index for index, arg in enumerate(args) if arg in ['-v', '--verbose']]
-	no_verbose_flags = [index for index, arg in enumerate(args) if arg in ['--no-verbose']]
-	max_verbose_flags = max(verbose_flags) if len(verbose_flags) != 0 else -1
-	max_no_verbose_flags = max(no_verbose_flags) if len(no_verbose_flags) != 0 else -1
-	if (len(args) > 0) and max_verbose_flags > max_no_verbose_flags:
+	verbose_flags = ['-v', '--verbose']
+	no_verbose_flags = ['-nv','--no-verbose']
+	verbose_flag_indexes = [index for index, arg in enumerate(args) if arg in verbose_flags]
+	no_verbose_flag_indexes = [index for index, arg in enumerate(args) if arg in no_verbose_flags]
+	max_verbose_flags = max(verbose_flag_indexes) if len(verbose_flag_indexes) != 0 else -1
+	max_no_verbose_flags = max(no_verbose_flag_indexes) if len(no_verbose_flag_indexes) != 0 else -1
+	if len(args) != len([arg for arg in args if arg in [*verbose_flags, *no_verbose_flags]]):
+		exit(f'''{colorama.Fore.RED}The specified flags, {colorama.Back.LIGHTBLUE_EX}{colorama.Style.BRIGHT}{
+			", ".join([
+				arg for arg in args
+				if arg not in [*verbose_flags, *no_verbose_flags]
+			])
+		}{colorama.Style.RESET_ALL}{colorama.Back.RESET},{colorama.Fore.RED} are not allowed!{colorama.Fore.RESET}''')
+	elif (len(args) > 0) and max_verbose_flags > max_no_verbose_flags:
 		print(' '.join(commands_info.keys()))
 	elif (len(args) == 0) or max_verbose_flags < max_no_verbose_flags:
 		print('\n'.join([
 			f'{colorama.Style.BRIGHT}{command_name}{colorama.Style.RESET_ALL}: {colorama.Fore.CYAN}{command_info}{colorama.Fore.RESET}'
 			for command_name, command_info in commands_info.items()
 		]))
-	else:
-		raise ValueError('The specified flags are not allowed')
