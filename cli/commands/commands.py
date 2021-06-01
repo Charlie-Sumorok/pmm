@@ -49,5 +49,6 @@ def parse_args(args):
 		print(' '.join(commands_info.keys()))
 	else:
 		print('\n'.join([
-			f'{colorama.Style.BRIGHT}{command_name}{colorama.Style.RESET_ALL}: {colorama.Fore.CYAN}{command_info}{colorama.Fore.RESET}' for command_name, command_info in commands_info.items()
+			f'{colorama.Style.BRIGHT}{command_name}{colorama.Style.RESET_ALL}: {colorama.Fore.CYAN}{command_info}{colorama.Fore.RESET}'
+			for command_name, command_info in commands_info.items()
 		]))
