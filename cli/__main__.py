@@ -22,7 +22,7 @@ colorama.init(autoreset = True)
 def parse_args(args):
 	'parse arguments'
 	command, *subcommand_args = args
-	if command == 'commands':
+	if command in ['commands', 'cmds']:
 		commands.parse_args(subcommand_args)
 	else:
 		raise NotImplementedError(f'The command, "{command}", has not been implemented yet')
