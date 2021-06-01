@@ -3,7 +3,7 @@
 
 import sys
 import colorama
-from commands import commands
+import commands
 
 colorama.init(autoreset = True)
 
@@ -21,11 +21,17 @@ colorama.init(autoreset = True)
 
 def parse_args(args):
 	'parse arguments'
-	command, *subcommand_args = args
-	if command in ['commands', 'cmds']:
-		commands.parse_args(subcommand_args)
+	print(len(args))
+	if len(args) == 0:
+		commands.pmm_help.parse_args([''])
 	else:
-		raise NotImplementedError(f'The command, "{command}", has not been implemented yet')
+		command, *subcommand_args = args
+		if command in ['commands', 'cmds']:
+			commands.commands.parse_args(subcommand_args)
+		elif command in ['home']:
+			commands.home.parse_args(subcommand_args)
+		else:
+			raise NotImplementedError(f'The command, "{command}", has not been implemented yet')
 
 parse_args(sys.argv[1:])
 

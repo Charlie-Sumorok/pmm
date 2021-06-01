@@ -29,7 +29,6 @@ jobs:
             pip install -r requirements.txt;
           fi
       - name: Lint
-        if: 'false'
         run: pylint cli --rcfile pylint.config.ini
       - name: Test Commands
         run: |
