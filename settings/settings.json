@@ -1,0 +1,5 @@
+{
+	"$schema": "./schema.jsonc",
+	"brew": true,
+	"package_manager": "brew"
+}
