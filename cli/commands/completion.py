@@ -42,7 +42,6 @@ def get_completion(shell):
 
 	sys.exit('Shell completion Unavailable')
 
-get_completion('zsh')
 # parser = argparse.ArgumentParser(
 # 	description = 'get shell completion for pmm'
 # )
