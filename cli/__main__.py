@@ -22,7 +22,6 @@ colorama.init(autoreset = True)
 
 def parse_args(args):
 	'parse arguments'
-	print(len(args))
 	if len(args) == 0:
 		commands.pmm_help.parse_args([''])
 	else:
