@@ -14,7 +14,7 @@ def parse_args(args):
 		if current_platform.startswith('linux'):
 			return f'{getenv("HOME")}/.config/PMM/settings.json'
 		if current_platform.startswith('darwin'):
-			return f'{getenv("USERNAME")}/Library/Application Support/PMM/settings.json'
+			return f'/Users/{getenv("USER")}/Library/Application Support/PMM/settings.json'
 		if current_platform.startswith('win32'):
 			return f'{getenv("APPDATA")}/\\PMM\\settings.json'
 		return ''
