@@ -33,9 +33,9 @@ def parse_args(args):
 		elif command in ['install', 'i']:
 			commands.install.parse_args(subcommand_args)
 		elif command in ['uninstall', 'un']:
-			raise NotImplementedError(f'The command, "uninstall", has not been implemented yet')
+			raise NotImplementedError('The command, "uninstall", has not been implemented yet')
 		elif command in ['list', 'ls']:
-			raise NotImplementedError(f'The command, "list", has not been implemented yet')
+			raise NotImplementedError('The command, "list", has not been implemented yet')
 		else:
 			raise NotImplementedError(f'The command, "{command}", has not been implemented yet')
 
