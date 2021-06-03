@@ -12,7 +12,7 @@ def parse_args(args):
 	package_manager_name = args[0]
 	def get_settings_path(platform):
 		if platform.startswith('linux'):
-			return f'{getenv("HOME")}E/.config/PMM/settings.json'
+			return f'{getenv("HOME")}/.config/PMM/settings.json'
 		elif platform.startswith('darwin'):
 			return f'{getenv("USERNAME")}/Library/Application Support/PMM/settings.json'
 		elif platform.startswith('win32'):
