@@ -44,12 +44,13 @@ def get_completion(shell):
 	sys.exit('Shell completion Unavailable')
 
 def parse_args(args):
+	'parse arguments'
 	if len(args) == 0:
 		shell_path = os.getenv('SHELL')
 	elif (args[0] in ['--shell', '-s']) and (len(args) > 1):
 		shell_path = args[1]
 	else:
-		exit()
+		sys.exit()
 
 	shell = shell_path.split('/')[-1]
 	completion = get_completion(shell)
