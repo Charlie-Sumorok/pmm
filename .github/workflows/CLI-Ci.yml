@@ -29,8 +29,7 @@ jobs:
             pip install -r requirements.txt;
           fi
       - name: Lint
-        if: 'false'
-        run: pylint cli --rcfile pylint.config.ini
+        run: pylint cli
       - name: Test Commands
         run: |
           alias pmm='python3 cli'

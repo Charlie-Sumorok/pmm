@@ -1,0 +1,23 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	// "$id": "https://example.com/product.schema.json",
+	"title": "Package Manager",
+	"description": "A package manager",
+	"type": "object",
+	"additionalProperties": false,
+	"patternProperties": {
+		"^[a-zA-Z]+$": {
+			"type": "boolean",
+			"description": "Whether the package manager is enabled for searching"
+		},
+		"\\$schema": {
+			"description": "Schema",
+			"type": "string"
+		},
+		"package_manager": {
+			"description": "Package manager for installing other package managers",
+			"type": "string"
+		}
+	},
+	"required": ["package_manager"]
+}

@@ -1,4 +1,9 @@
-import colorama, sys
+#! /usr/bin/env python
+
+'list all commands'
+
+import sys
+import colorama
 
 colorama.init(autoreset = True)
 
@@ -8,6 +13,7 @@ def snippet(
 	foreground = colorama.Fore.RESET,
 	background = colorama.Back.RESET
 ):
+	'get snippet coloring'
 	return colorama.Back.LIGHTBLACK_EX + \
 		colorama.Style.BRIGHT + \
 			string + \
@@ -16,7 +22,9 @@ def snippet(
 	foreground
 
 commands_info = {
-	"alias": f"create command aliases (same syntax as {snippet('alias', foreground=colorama.Fore.CYAN)})", #`alias key=value`
+	"alias": f'''create command aliases (same syntax as {
+		snippet('alias', foreground=colorama.Fore.CYAN)
+	})''', #`alias key=value`
 	"update": "update all package managers",
 	"upgrade": "update specific package managers",
 	"home": "Go to the homepage of PMM or a specified package manager",
@@ -34,7 +42,8 @@ commands_info = {
 	"docs": "Go to docs for PMM or a specified package manager",
 	"login": "log in to GitHub to create the pull request",
 	"logout": "log out of GitHub",
-	"search": "search for available package managers or packages", # --manager <Package Manager> | -m <Package Manager> | <Package Name>
+	"search": "search for available package managers or packages",
+		# --manager <Package Manager> | -m <Package Manager> | <Package Name>
 	"enable": "enable a package manager for searching",
 	"disable": "disable a package manager for searching",
 	"repo": "Go to the repo of PMM or a specified package manager",
@@ -42,10 +51,12 @@ commands_info = {
 	"commands": "list all commands",
 	"completion": "get shell completion",
 	"cmds": "alias of commands",
-	# "show": "show package manager on PMM website".
+	# "show": "show package manager on PMM website",
+	"": "Package Manager Manager",
 }
 
 def parse_args(args: list[str]):
+	'parse arguments'
 	verbose_flags = ['-v', '--verbose']
 	no_verbose_flags = ['-nv','--no-verbose']
 	verbose_flag_indexes = [index for index, arg in enumerate(args) if arg in verbose_flags]
@@ -53,16 +64,42 @@ def parse_args(args: list[str]):
 	max_verbose_flags = max(verbose_flag_indexes) if len(verbose_flag_indexes) != 0 else -1
 	max_no_verbose_flags = max(no_verbose_flag_indexes) if len(no_verbose_flag_indexes) != 0 else -1
 	if len(args) != len([arg for arg in args if arg in [*verbose_flags, *no_verbose_flags]]):
-		exit(f'''{colorama.Fore.RED}The specified flags, {colorama.Back.LIGHTBLUE_EX}{colorama.Style.BRIGHT}{
+		sys.exit(f'''{
+			colorama.Fore.RED
+		}The specified flags, {
+			colorama.Back.LIGHTBLUE_EX
+		}{
+			colorama.Style.BRIGHT
+		}{
 			", ".join([
 				arg for arg in args
 				if arg not in [*verbose_flags, *no_verbose_flags]
 			])
-		}{colorama.Style.RESET_ALL}{colorama.Back.RESET},{colorama.Fore.RED} are not allowed!{colorama.Fore.RESET}''')
+		}{
+			colorama.Style.RESET_ALL
+		}{
+			colorama.Back.RESET
+		},{
+			colorama.Fore.RED
+		} are not allowed!{
+			colorama.Fore.RESET
+		}''')
 	elif (len(args) > 0) and max_verbose_flags > max_no_verbose_flags:
 		print(' '.join(commands_info.keys()))
 	elif (len(args) == 0) or max_verbose_flags < max_no_verbose_flags:
 		print('\n'.join([
-			f'{colorama.Style.BRIGHT}{command_name}{colorama.Style.RESET_ALL}: {colorama.Fore.CYAN}{command_info}{colorama.Fore.RESET}'
+			f'''{
+				colorama.Style.BRIGHT
+			}{
+				command_name
+			}{
+				colorama.Style.RESET_ALL
+			}: {
+				colorama.Fore.CYAN
+			}{
+					command_info
+			}{
+				colorama.Fore.RESET
+			}'''
 			for command_name, command_info in commands_info.items()
 		]))

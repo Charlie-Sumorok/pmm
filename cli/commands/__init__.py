@@ -1,3 +1,5 @@
+'pmm commands'
+
 from . import commands
 from . import completion
 from . import config
@@ -5,10 +7,10 @@ from . import develop
 from . import enable
 from . import disable
 from . import docs
-from . import help
+from . import pmm_help
 from . import home
 from . import install
-from . import list
+from . import pmm_list
 from . import login
 from . import logout
 from . import repo
@@ -27,10 +29,10 @@ __all__ = [
 	'enable',
 	'disable',
 	'docs',
-	'help',
+	'pmm_help',
 	'home',
 	'install',
-	'list',
+	'pmm_list',
 	'login',
 	'logout',
 	'repo',
