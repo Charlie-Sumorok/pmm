@@ -7,10 +7,10 @@ from . import develop
 from . import enable
 from . import disable
 from . import docs
-from . import pmm_help
+from . import help_pmm
 from . import home
 from . import install
-from . import list as pmm_list
+from . import list_pmm
 from . import login
 from . import logout
 from . import repo
@@ -29,10 +29,10 @@ __all__ = [
 	'enable',
 	'disable',
 	'docs',
-	'pmm_help',
+	'help_pmm',
 	'home',
 	'install',
-	'pmm_list',
+	'list_pmm',
 	'login',
 	'logout',
 	'repo',
