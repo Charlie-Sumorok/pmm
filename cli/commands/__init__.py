@@ -7,10 +7,10 @@ from . import develop
 from . import enable
 from . import disable
 from . import docs
-from . import help_pmm
+from . import pmm_help
 from . import home
 from . import install
-from . import list_pmm
+from . import pmm_list
 from . import login
 from . import logout
 from . import repo
