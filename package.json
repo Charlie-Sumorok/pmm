@@ -42,7 +42,7 @@
 	},
 	"devDependencies": {
 		"@types/node": "^15.12.1",
-		"electron": "^13.1.0",
+		"electron": "^13.1.1",
 		"electron-builder": "^22.10.5",
 		"np": "^7.5.0",
 		"sass": "^1.34.1",
