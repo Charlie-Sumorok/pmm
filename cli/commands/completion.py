@@ -2,6 +2,7 @@
 
 'get shell completion'
 import sys
+import os
 
 def get_completion(shell):
 	'get shell completion'
@@ -42,21 +43,15 @@ def get_completion(shell):
 
 	sys.exit('Shell completion Unavailable')
 
-# parser = argparse.ArgumentParser(
-# 	description = 'get shell completion for pmm'
-# )
+def parse_args(args):
+	'parse arguments'
+	if len(args) == 0:
+		shell_path = os.getenv('SHELL')
+	elif (args[0] in ['--shell', '-s']) and (len(args) > 1):
+		shell_path = args[1]
+	else:
+		sys.exit()
 
-# parser.add_argument(
-# 	name_or_flags = '--shell',
-# 	required = False,
-# 	choices = [
-# 		'bash',
-# 		'zsh'
-# 	],
-# 	type = get_completion,
-# 	default = os.getenv('SHELL'),
-# 	help = 'specify the shell',
-# )
-
-# parsed_args = parser.parse_args()
-# print(parsed_args.shell)
+	shell = shell_path.split('/')[-1]
+	completion = get_completion(shell)
+	print(completion)
