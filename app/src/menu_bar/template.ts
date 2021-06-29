@@ -8,7 +8,7 @@ import { app, shell } from 'electron';
 
 import { SubMenu } from './helper_functions/menus';
 import path from 'path';
-import { showPreferences } from './helper_functions';
+import { showPreferences } from '../preferences';
 import { storage } from '../config';
 
 const { debugInfo, is, aboutMenuItem, appMenu } = require('electron-util');
