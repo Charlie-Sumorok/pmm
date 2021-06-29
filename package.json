@@ -18,10 +18,10 @@
 	"private": true,
 	"scripts": {
 		"postinstall": "electron-builder install-app-deps",
-		"lint": "xo",
+		"lint": "xo app/src",
 		"test": "npm run lint",
 		"dev:app": "tsc --watch",
-		"dev:styles": "sass --watch styles/scss:styles/css",
+		"dev:styles": "sass --watch app/styles/scss:app/styles/css",
 		"dev": "concurrently 'npm run dev:app' 'npm run dev:styles' --names 'typescript,scss' --prefix-colors",
 		"test_app": "npm start & sleep 10",
 		"posttest_app": "killall node",
