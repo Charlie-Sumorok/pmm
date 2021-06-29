@@ -4,14 +4,13 @@ import {
 	gitHubIssueFromTemplate,
 	gitHubRepo_MenuBar_Item,
 } from './helper_functions/github';
+import { aboutMenuItem, appMenu, is, platform } from 'electron-util';
 import { app, shell } from 'electron';
 
 import { SubMenu } from './helper_functions/menus';
 import path from 'path';
 import { showPreferences } from '../preferences';
 import { storage } from '../config';
-
-const { debugInfo, is, aboutMenuItem, appMenu } = require('electron-util');
 
 const main_repo: GitHubRepo = {
 	owner: 'Charlie-Sumorok',
@@ -29,41 +28,6 @@ const bug_report = new GitHubIssue({
 	template: 'bug-report.md',
 	title: 'Bug+Report',
 });
-
-const bug_report_body = `
----
-name: Bug Report
-about: Create a report to help us improve
-title: Bug Report
-labels: bug
-assignees: ''
-
----
-
-**Describe the bug**
-<!-- A clear and concise description of what the bug is. -->
-
-**To Reproduce**
-<!-- Steps to reproduce the behavior -->
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
-
-**Expected behavior**
-<!-- A clear and concise description of what you expected to happen. -->
-
-**Screenshots**
-<!-- If applicable, add screenshots to help explain your problem. -->
-
-**Desktop (please complete the following information):**
- - OS: <!-- [e.g. iOS] -->
- - App Version <!-- [e.g. 22] -->
-
-**Additional context**
-<!-- Add any other context about the problem here. -->
-
-${debugInfo()}`;
 
 const helpSubmenu: SubMenu = [
 	gitHubRepo_MenuBar_Item({
@@ -135,7 +99,7 @@ const debugSubmenu: SubMenu = [
 	},
 ];
 
-const macosTemplate = [
+const macosTemplate: SubMenu = [
 	appMenu([
 		{
 			label: 'Preferences…',
@@ -212,7 +176,10 @@ const otherTemplate: SubMenu = [
 	},
 ];
 
-const template = process.platform === 'darwin' ? macosTemplate : otherTemplate;
+const template = platform({
+	macos: macosTemplate,
+	default: otherTemplate,
+});
 
 if (is.development) {
 	template.push({

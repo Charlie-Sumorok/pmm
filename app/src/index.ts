@@ -8,7 +8,7 @@ import path from 'path';
 import unhandled from 'electron-unhandled';
 
 unhandled();
-// X debug();
+// TMP debug();
 contextMenu();
 
 // Note: Must match `build.appId` in package.json
@@ -26,7 +26,7 @@ app.setAppUserModelId('com.company.AppName');
 // }
 
 // Prevent window from being garbage collected
-let mainWindow: any;
+let mainWindow: BrowserWindow | undefined;
 
 const createMainWindow = async () => {
 	const win = new BrowserWindow({
