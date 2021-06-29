@@ -1,0 +1,21 @@
+/*
+====
+main
+====
+*/
+
+/* @use 'themes'; */
+@use 'themes';
+
+* {
+	--min-width: 15rem;
+	color: var(--text--text-color);
+}
+
+a {
+	color: var(--text--link-color);
+}
+
+body {
+	background: var(--ui--background-color);
+}

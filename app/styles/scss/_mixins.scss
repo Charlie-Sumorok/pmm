@@ -5,26 +5,26 @@ mixins
 */
 
 @mixin button($radius, $gap: 10px, $border: 10px) {
-	background: var(--ui-button-background);
+	background: var(--ui--button-background);
 	border-radius: $radius;
-	color: var(--text-text-color);
+	color: var(--text--text-color);
 	transition: all 0.1s ease-in-out;
 	box-shadow: none;
 
 	&:hover {
-		background: var(--ui-button-hover);
+		background: var(--ui--button-hover);
 		box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
 	}
 
 	&:active {
-		background: var(--ui-button-pressed);
+		background: var(--ui--button-pressed);
 	}
 
 	&:focus {
-		// outline: 10px solid var(--ui-button-background);
+		// outline: 10px solid var(--ui--button-background);
 		outline: none;
-		box-shadow: 0 0 0 $gap var(--ui-background-color),
-			0 0 0 #{$gap + $border} var(--ui-button-hover);
+		box-shadow: 0 0 0 $gap var(--ui--background-color),
+			0 0 0 #{$gap + $border} var(--ui--button-hover);
 	}
 }
 

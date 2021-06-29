@@ -40,7 +40,7 @@ $themes: (
 
 @each $type, $theme in $auto-themes {
 	@media (prefers-color-scheme: $type) {
-		.body {
+		body {
 			@include theme($theme);
 		}
 	}

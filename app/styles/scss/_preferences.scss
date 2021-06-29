@@ -12,7 +12,7 @@ preferences
 
 .preferences {
 	display: grid;
-	background-color: var(--background-color);
+	background-color: var(--ui--background-color);
 	gap: 1rem;
 	margin: 1rem;
 	grid-template-columns: repeat(auto-fit, minmax(var(--min-width), 1fr));
