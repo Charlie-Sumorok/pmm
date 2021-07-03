@@ -43,3 +43,4 @@ jobs:
         run: npm run test
       - name: Compile SCSS
         run: npx sass styles/scss:styles/css
+        working-directory: app
